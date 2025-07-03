@@ -1,6 +1,7 @@
 import { purgeProps } from './utils';
 import { XmlParser } from './xmlparser';
 import { LatLon, Node } from './node';
+import { Output } from './output';
 import { Way } from './way';
 import { Relation } from './relation';
 import { RefElements } from './ref-elements';
@@ -52,6 +53,15 @@ function detectFormat(o: string | { [k: string]: any }): "json" | "xml" | "json-
 
 function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElements): void {
     for (const elem of (osm as { [k: string]: any }).elements) {
+        if (elem.geometry?.type) {
+            const obj = new Output(elem.type as string, elem.id as string, refElements);
+            if (elem.tags) {
+                obj.addTags(elem.tags);
+            }
+            obj.addProps(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
+            obj.setGeometry(elem.geometry);
+            continue;
+        }
         switch (elem.type) {
             case 'node':
                 const node = new Node(elem.id as string, refElements);
