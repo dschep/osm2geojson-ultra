@@ -1,6 +1,7 @@
+import { parse } from 'txml';
 import { purgeProps } from './utils';
-import { XmlParser } from './xmlparser';
 import { LatLon, Node } from './node';
+import { OsmObject } from './osm_object';
 import { Output } from './output';
 import { Way } from './way';
 import { Relation } from './relation';
@@ -9,19 +10,19 @@ import type { Feature, FeatureCollection, GeometryObject } from 'geojson';
 
 interface IOptions {
     /**
-     * When it's set to `true`, the returned geojson will include all elements that meet the specified conditions in `FeatureCollection` format; 
+     * When it's set to `true`, the returned geojson will include all elements that meet the specified conditions in `FeatureCollection` format;
      * otherwise, only the bare geometry of the first `relation` element will be returned.
      * @default false
      */
     completeFeature?: boolean;
     /**
-     * When it's set to `true`, the returned geojson will include all elements with tags (i.e., tagged) 
+     * When it's set to `true`, the returned geojson will include all elements with tags (i.e., tagged)
      * until `suppressWay` changes its behavior a bit; otherwise only the unreferenced ones get returned.
      * @default false
      */
     renderTagged?: boolean;
     /**
-     * When it's set to `true`, the returned `FeatureCollection` will exclude all referenced `way`s even though they are tagged; 
+     * When it's set to `true`, the returned `FeatureCollection` will exclude all referenced `way`s even though they are tagged;
      * otherwise the features of those `way`s will be included in the resulted result as well.
      * @default true
      */
@@ -105,95 +106,105 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
     }
 }
 
+function setTagsFromXML(elNode, obj: OsmObject) {
+    for (const elChild of elNode.children) {
+        if (elChild.tagName === "tag") {
+            obj.addTag(elChild.attributes.k, elChild.attributes.v)
+        }
+    }
+}
+
 function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
-    const xmlParser = new XmlParser({ progressive: true });
+    const parsed = parse(osm);
 
-    xmlParser.on('</osm.node>', (node: { [k: string]: any }) => {
-        const nd = new Node(node.id, refElements);
-        for (const [k, v] of Object.entries(node)) {
-            if (!k.startsWith('$') && ['id', 'lon', 'lat'].indexOf(k) < 0) {
-                nd.addProp(k, v);
-            }
-        }
-        nd.setLatLng(node as LatLon);
-        if (node.$innerNodes) {
-            for (const ind of node.$innerNodes) {
-                if (ind.$tag === 'tag') {
-                    nd.addTag(ind.k, ind.v);
-                }
-            }
-        }
-    });
-
-    xmlParser.on('</osm.way>', (node: { [k: string]: any }) => {
-        const way = new Way(node.id, refElements);
-        for (const [k, v] of Object.entries(node)) {
-            if (!k.startsWith('$') && ['id'].indexOf(k) < 0) {
-                way.addProp(k, v);
-            }
-        }
-        if (node.$innerNodes) {
-            for (const ind of node.$innerNodes) {
-                if (ind.$tag === 'nd') {
-                    if (ind.lon && ind.lat) {
-                        way.addLatLng(ind);
-                    } else if (ind.ref) {
-                        way.addNodeRef(ind.ref);
+    for (const rootNode of parsed) {
+        for (const elNode of rootNode.children) {
+            if (elNode.children.find(c => ['point'].includes(c.tagName))) {
+                // TODO: other derived output geoms
+                const obj = new Output(elNode.tagName as string, elNode.attributes.id as string, refElements);
+                obj.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
+                for (const elChild of elNode.children) {
+                    if (elChild.tagName === 'point') {
+                        obj.setGeometry({
+                            type: "Point",
+                            coordinates: [parseFloat(elChild.attributes.lon), parseFloat(elChild.attributes.lat)],
+                        });
                     }
-                } else if (ind.$tag === 'tag') {
-                    way.addTag(ind.k, ind.v);
                 }
+                setTagsFromXML(elNode, obj);
+                continue
+            }
+            switch (elNode.tagName) {
+                case 'node':
+                    const nd = new Node(elNode.attributes.id, refElements);
+                    nd.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'lon', 'lat']));
+                    setTagsFromXML(elNode, nd);
+                    nd.setLatLng(elNode.attributes as LatLon)
+                    break;
+                case 'way':
+                    const way = new Way(elNode.attributes.id, refElements);
+                    way.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'nodes', 'geometry']));
+                    setTagsFromXML(elNode, way);
+                    for (const elChild of elNode.children) {
+                        if (elChild.tagName === "nd") {
+                            if (elChild.attributes.lon && elChild.attributes.lat) {
+                                way.addLatLng(elChild.attributes as LatLon);
+                            } else {
+                                way.addNodeRef(elChild.attributes.ref);
+                            }
+                        }
+                    }
+                    break;
+                case 'relation':
+                    const rel = new Relation(elNode.attributes.id, refElements);
+                    setTagsFromXML(elNode, rel);
+                    for (const elChild of elNode.children) {
+                        if (elChild.tagName === "member") {
+                            const member = {
+                                type: elChild.attributes.type,
+                                role: elChild.attributes.role || '',
+                                ref: elChild.attributes.ref,
+                            };
+                            if (elChild.attributes.type === 'node' && elChild.attributes.lon && elChild.attributes.lat) {
+                                member.lon = elChild.attributes.lon;
+                                member.lat = elChild.attributes.lat;
+                                member.tags = {};
+                                for (const [k, v] of Object.entries(elChild.attributes)) {
+                                    if (!k.startsWith('$') && ['type', 'lat', 'lon'].indexOf(k) < 0) {
+                                        member[k] = v;
+                                    }
+                                }
+                            } else {
+                                const geometry: any[] = [];
+                                const nodes: any[] = [];
+                                for (const memChild of elChild.children) {
+                                    if (memChild.attributes.lon && memChild.attributes.lat) {
+                                        geometry.push(memChild.attributes as LatLon);
+                                    } else if (memChild.attributes.ref) {
+                                        nodes.push(memChild.attributes.ref);
+                                    }
+                                }
+                                if (geometry.length > 0) {
+                                    member.geometry = geometry;
+                                } else if (nodes.length > 0) {
+                                    member.nodes = nodes;
+                                }
+                            }
+                            rel.addMember(member);
+                        }
+                        if (elChild.tagName === "bounds") {
+                            rel.setBounds([
+                                parseFloat(elChild.attributes.minlon),
+                                parseFloat(elChild.attributes.minlat),
+                                parseFloat(elChild.attributes.maxlon),
+                                parseFloat(elChild.attributes.maxlat),
+                            ])
+                        }
+                    }
+                    break;
             }
         }
-    });
-
-    xmlParser.on('<osm.relation>', (node: { [k: string]: any }) => new Relation(node.id, refElements));
-
-    xmlParser.on('</osm.relation.member>', (node: { [k: string]: any }, parent?: { [k: string]: any }) => {
-        const relation = refElements.get(`relation/${parent?.id}`) as Relation;
-        const member: { [k: string]: any } = {
-            type: node.type,
-            role: node.role ? node.role : '',
-            ref: node.ref,
-        };
-
-        if (node.lat && node.lon) {
-            member.lat = node.lat, member.lon = node.lon, member.tags = {};
-            for (const [k, v] of Object.entries(node)) {
-                if (!k.startsWith('$') && ['type', 'lat', 'lon'].indexOf(k) < 0) {
-                    member[k] = v;
-                }
-            }
-        }
-
-        if (node.$innerNodes) {
-            const geometry: any[] = [];
-            const nodes: any[] = [];
-            for (const ind of node.$innerNodes) {
-                if (ind.lat && ind.lon) {
-                    geometry.push(ind);
-                } else if (ind.ref) {
-                    nodes.push(ind.ref);
-                }
-            }
-            if (geometry.length > 0) {
-                member.geometry = geometry;
-            } else if (nodes.length > 0) {
-                member.nodes = nodes;
-            }
-        }
-        relation.addMember(member);
-    });
-
-    xmlParser.on('</osm.relation.bounds>', (node: { [k: string]: any }, parent?: { [k: string]: any }) => {
-        (refElements.get(`relation/${parent?.id}`) as Relation).setBounds([parseFloat(node.minlon), parseFloat(node.minlat), parseFloat(node.maxlon), parseFloat(node.maxlat)]);
-    });
-
-    xmlParser.on('</osm.relation.tag>', (node: { [k: string]: any }, parent?: { [k: string]: any }) => {
-        (refElements.get(`relation/${parent?.id}`) as Relation).addTag(node.k, node.v);
-    });
-
-    xmlParser.parse(osm);
+    }
 };
 
 function osm2geojson(osm: string | { [k: string]: any }, opts?: IOptions): FeatureCollection<GeometryObject> {
