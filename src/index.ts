@@ -115,7 +115,7 @@ function setTagsFromXML(elNode: any, obj: OsmObject) {
 }
 
 function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
-    const parsed = parse(osm);
+    const parsed = parse(osm, { noChildNodes: [] });
 
     for (const rootNode of parsed) {
         for (const elNode of rootNode.children) {

@@ -1,0 +1,1412 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "vertex/1",
+      "properties": {
+        "id": "vertex/1",
+        "id_tag": "node_1100"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.101,
+          52.001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vertex/2",
+      "properties": {
+        "id": "vertex/2",
+        "_local_id": "1",
+        "id_tag": "node_1110"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.105,
+          52.011
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "vertex/3",
+      "properties": {
+        "id": "vertex/3",
+        "id_tag": "node_20012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.006,
+          52.101
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/4",
+      "properties": {
+        "id": "link/4",
+        "id_tag": "way_1006"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            51.999
+          ],
+          [
+            8.006,
+            51.999
+          ],
+          [
+            8.007,
+            52.001
+          ],
+          [
+            8.008,
+            52.001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/5",
+      "properties": {
+        "id": "link/5",
+        "id_tag": "way_1001"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.001
+          ],
+          [
+            8.006,
+            52.001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/6",
+      "properties": {
+        "id": "link/6",
+        "id_tag": "way_1004"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.004
+          ],
+          [
+            8.006,
+            52.004
+          ],
+          [
+            8.007,
+            52.004
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/7",
+      "properties": {
+        "id": "link/7",
+        "id_tag": "way_3022"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.104,
+            52.001
+          ],
+          [
+            8.105,
+            51.999
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/8",
+      "properties": {
+        "id": "link/8",
+        "id_tag": "way_3022"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.105,
+            51.999
+          ],
+          [
+            8.106,
+            52.001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/9",
+      "properties": {
+        "id": "link/9",
+        "id_tag": "way_2001"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.101
+          ],
+          [
+            8.006,
+            52.101
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/10",
+      "properties": {
+        "id": "link/10",
+        "id_tag": "way_2001"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.006,
+            52.101
+          ],
+          [
+            8.007,
+            52.101
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/11",
+      "properties": {
+        "id": "link/11",
+        "id_tag": "way_2002"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.102
+          ],
+          [
+            8.006,
+            52.102
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/12",
+      "properties": {
+        "id": "link/12",
+        "id_tag": "way_2002"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.006,
+            52.102
+          ],
+          [
+            8.007,
+            52.102
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/13",
+      "properties": {
+        "id": "link/13",
+        "_local_to": "1",
+        "id_tag": "way_2003"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.103
+          ],
+          [
+            8.006,
+            52.103
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/14",
+      "properties": {
+        "id": "link/14",
+        "_local_from": "1",
+        "id_tag": "way_2003"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.006,
+            52.103
+          ],
+          [
+            8.007,
+            52.103
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/15",
+      "properties": {
+        "id": "link/15",
+        "id_tag": "way_2004"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.006,
+            52.1021
+          ],
+          [
+            8.006,
+            52.102
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/16",
+      "properties": {
+        "id": "link/16",
+        "_local_id": "1",
+        "id_tag": "way_3111"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.104,
+            52.105
+          ],
+          [
+            8.105,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/17",
+      "properties": {
+        "id": "link/17",
+        "_local_id": "1",
+        "id_tag": "way_3111"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.105,
+            52.105
+          ],
+          [
+            8.106,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/18",
+      "properties": {
+        "id": "link/18",
+        "_local_id": "2",
+        "id_tag": "way_3112"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.104,
+            52.105
+          ],
+          [
+            8.105,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/19",
+      "properties": {
+        "id": "link/19",
+        "_local_id": "2",
+        "id_tag": "way_3112"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.105,
+            52.105
+          ],
+          [
+            8.106,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/20",
+      "properties": {
+        "id": "link/20",
+        "id_tag": "way_3001"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.001,
+            52.205
+          ],
+          [
+            8.003,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/21",
+      "properties": {
+        "id": "link/21",
+        "id_tag": "way_3003"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.007,
+            52.205
+          ],
+          [
+            8.009,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/22",
+      "properties": {
+        "id": "link/22",
+        "id_tag": "way_3004"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.007,
+            52.204
+          ],
+          [
+            8.009,
+            52.206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/23",
+      "properties": {
+        "id": "link/23",
+        "id_tag": "way_3005"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.009,
+            52.204
+          ],
+          [
+            8.007,
+            52.206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/24",
+      "properties": {
+        "id": "link/24",
+        "id_tag": "way_3002"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.002,
+            52.204
+          ],
+          [
+            8.002,
+            52.206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/25",
+      "properties": {
+        "id": "link/25",
+        "_local_id": "2",
+        "id_tag": "way_3122"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.204,
+            52.105
+          ],
+          [
+            8.205,
+            52.104
+          ],
+          [
+            8.206,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/26",
+      "properties": {
+        "id": "link/26",
+        "_local_id": "1",
+        "id_tag": "way_3121"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.204,
+            52.105
+          ],
+          [
+            8.205,
+            52.105
+          ],
+          [
+            8.206,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/27",
+      "properties": {
+        "id": "link/27",
+        "_local_id": "1",
+        "id_tag": "way_3131"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.304,
+            52.105
+          ],
+          [
+            8.306,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/28",
+      "properties": {
+        "id": "link/28",
+        "id_tag": "way_3131"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.306,
+            52.105
+          ],
+          [
+            8.305,
+            52.106
+          ],
+          [
+            8.304,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/29",
+      "properties": {
+        "id": "link/29",
+        "_local_id": "2",
+        "id_tag": "way_3131"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.304,
+            52.105
+          ],
+          [
+            8.306,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/30",
+      "properties": {
+        "id": "link/30",
+        "id_tag": "way_3131"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.306,
+            52.105
+          ],
+          [
+            8.307,
+            52.105
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/31",
+      "properties": {
+        "id": "link/31",
+        "id_tag": "way_3011"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.005,
+            52.505
+          ],
+          [
+            8.025,
+            52.505
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "link/32",
+      "properties": {
+        "id": "link/32",
+        "id_tag": "way_3012"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.505,
+            52.505
+          ],
+          [
+            8.995,
+            52.505
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/33",
+      "properties": {
+        "id": "trigraph/33",
+        "id_tag": "rel_1113",
+        "_next": "34"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.125,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/34",
+      "properties": {
+        "id": "trigraph/34",
+        "_previous": "33",
+        "id_tag": "rel_1113"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.126,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/35",
+      "properties": {
+        "id": "trigraph/35",
+        "id_tag": "rel_1125",
+        "_next": "36"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.501,
+            52.001
+          ],
+          [
+            8.502,
+            51.199
+          ],
+          [
+            8.503,
+            51.199
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/36",
+      "properties": {
+        "id": "trigraph/36",
+        "_previous": "35",
+        "id_tag": "rel_1125",
+        "_next": "37"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.504,
+            52.205
+          ],
+          [
+            8.505,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/37",
+      "properties": {
+        "id": "trigraph/37",
+        "_previous": "36",
+        "id_tag": "rel_1125"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.505,
+            52.205
+          ],
+          [
+            8.506,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/38",
+      "properties": {
+        "id": "trigraph/38",
+        "id_tag": "rel_1126"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.604,
+            52.001
+          ],
+          [
+            8.604,
+            51.199
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/39",
+      "properties": {
+        "id": "trigraph/39",
+        "id_tag": "rel_1126"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.606,
+            51.199
+          ],
+          [
+            8.606,
+            52.001
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/40",
+      "properties": {
+        "id": "trigraph/40",
+        "id_tag": "rel_1111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.105,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/41",
+      "properties": {
+        "id": "trigraph/41",
+        "id_tag": "rel_1112",
+        "_next": "42"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.114,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/42",
+      "properties": {
+        "id": "trigraph/42",
+        "_previous": "41",
+        "id_tag": "rel_1112"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.116,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/43",
+      "properties": {
+        "id": "trigraph/43",
+        "_local_ref": "1",
+        "id_tag": "rel_1114",
+        "_next": "44"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.135,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/44",
+      "properties": {
+        "id": "trigraph/44",
+        "_local_ref": "2",
+        "_previous": "43",
+        "id_tag": "rel_1114"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.135,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/45",
+      "properties": {
+        "id": "trigraph/45",
+        "_local_ref": "1",
+        "id_tag": "rel_1131",
+        "_next": "46"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.145,
+          52.005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/46",
+      "properties": {
+        "id": "trigraph/46",
+        "_previous": "45",
+        "_vertex_local_from": "2",
+        "id_tag": "rel_1131"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.145,
+            52.005
+          ],
+          [
+            8.146,
+            52.005
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/47",
+      "properties": {
+        "id": "trigraph/47",
+        "id_tag": "rel_1121"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.104,
+            52.205
+          ],
+          [
+            8.106,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/48",
+      "properties": {
+        "id": "trigraph/48",
+        "id_tag": "rel_1122",
+        "_next": "49"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.204,
+            52.205
+          ],
+          [
+            8.205,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/49",
+      "properties": {
+        "id": "trigraph/49",
+        "_previous": "48",
+        "id_tag": "rel_1122"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.205,
+            52.205
+          ],
+          [
+            8.206,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/50",
+      "properties": {
+        "id": "trigraph/50",
+        "id_tag": "rel_1123",
+        "_next": "51"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.301,
+            52.205
+          ],
+          [
+            8.302,
+            52.205
+          ],
+          [
+            8.303,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/51",
+      "properties": {
+        "id": "trigraph/51",
+        "_previous": "50",
+        "id_tag": "rel_1123",
+        "_next": "52"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.306,
+            52.205
+          ],
+          [
+            8.307,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/52",
+      "properties": {
+        "id": "trigraph/52",
+        "_previous": "51",
+        "id_tag": "rel_1123"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.307,
+            52.205
+          ],
+          [
+            8.308,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/53",
+      "properties": {
+        "id": "trigraph/53",
+        "_local_ref": "1",
+        "id_tag": "rel_1127",
+        "_next": "54"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.304,
+            52.305
+          ],
+          [
+            8.306,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/54",
+      "properties": {
+        "id": "trigraph/54",
+        "_previous": "53",
+        "id_tag": "rel_1127",
+        "_next": "55"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.306,
+            52.305
+          ],
+          [
+            8.305,
+            52.306
+          ],
+          [
+            8.304,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/55",
+      "properties": {
+        "id": "trigraph/55",
+        "_local_ref": "2",
+        "_previous": "54",
+        "id_tag": "rel_1127",
+        "_next": "56"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.304,
+            52.305
+          ],
+          [
+            8.306,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/56",
+      "properties": {
+        "id": "trigraph/56",
+        "_previous": "55",
+        "id_tag": "rel_1127"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.306,
+            52.305
+          ],
+          [
+            8.307,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/57",
+      "properties": {
+        "id": "trigraph/57",
+        "id_tag": "rel_1124",
+        "_next": "58"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.404,
+            52.205
+          ],
+          [
+            8.405,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/58",
+      "properties": {
+        "id": "trigraph/58",
+        "_previous": "57",
+        "id_tag": "rel_1124"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.405,
+            52.205
+          ],
+          [
+            8.406,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/59",
+      "properties": {
+        "id": "trigraph/59",
+        "id_tag": "rel_1161",
+        "_next": "60"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.701,
+            52.205
+          ],
+          [
+            8.702,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/60",
+      "properties": {
+        "id": "trigraph/60",
+        "_previous": "59",
+        "id_tag": "rel_1161"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.702,
+            52.205
+          ],
+          [
+            8.703,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/61",
+      "properties": {
+        "id": "trigraph/61",
+        "id_tag": "rel_1162"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.712,
+            52.205
+          ],
+          [
+            8.711,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/62",
+      "properties": {
+        "id": "trigraph/62",
+        "id_tag": "rel_1162"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.713,
+            52.205
+          ],
+          [
+            8.712,
+            52.205
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/63",
+      "properties": {
+        "id": "trigraph/63",
+        "id_tag": "rel_1128",
+        "_next": "64"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.406,
+            52.305
+          ],
+          [
+            8.404,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/64",
+      "properties": {
+        "id": "trigraph/64",
+        "_previous": "63",
+        "id_tag": "rel_1128",
+        "_next": "65"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.404,
+            52.305
+          ],
+          [
+            8.405,
+            52.306
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/65",
+      "properties": {
+        "id": "trigraph/65",
+        "_previous": "64",
+        "id_tag": "rel_1128",
+        "_next": "66"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.405,
+            52.306
+          ],
+          [
+            8.406,
+            52.305
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "trigraph/66",
+      "properties": {
+        "id": "trigraph/66",
+        "_previous": "65",
+        "id_tag": "rel_1128"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            8.406,
+            52.305
+          ],
+          [
+            8.404,
+            52.305
+          ]
+        ]
+      }
+    }
+  ]
+}
