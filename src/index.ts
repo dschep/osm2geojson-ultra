@@ -125,7 +125,7 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
                 obj.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
                 setTagsFromXML(elNode, obj);
                 const coordinates = [];
-                const geometries = [];
+                const geometries: GeometryObject[] = [];
                 for (const elChild of elNode.children) {
                     switch (elChild.tagName) {
                         case 'point':
