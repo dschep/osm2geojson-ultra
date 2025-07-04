@@ -1,7 +1,7 @@
 import { parse } from 'txml';
 import { purgeProps } from './utils';
 import { LatLon, Node } from './node';
-import { OsmObject } from './osm_object';
+import { OsmObject } from './osm-object';
 import { Output } from './output';
 import { Way } from './way';
 import { Relation } from './relation';
@@ -106,7 +106,7 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
     }
 }
 
-function setTagsFromXML(elNode, obj: OsmObject) {
+function setTagsFromXML(elNode: any, obj: OsmObject) {
     for (const elChild of elNode.children) {
         if (elChild.tagName === "tag") {
             obj.addTag(elChild.attributes.k, elChild.attributes.v)
@@ -119,7 +119,7 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
 
     for (const rootNode of parsed) {
         for (const elNode of rootNode.children) {
-            if (elNode.children.find(c => ['point'].includes(c.tagName))) {
+            if (elNode.children.find((c: any) => ['point'].includes(c.tagName))) {
                 // TODO: other derived output geoms
                 const obj = new Output(elNode.tagName as string, elNode.attributes.id as string, refElements);
                 obj.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
@@ -160,7 +160,7 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
                     setTagsFromXML(elNode, rel);
                     for (const elChild of elNode.children) {
                         if (elChild.tagName === "member") {
-                            const member = {
+                            const member: { [k: string]: any } = {
                                 type: elChild.attributes.type,
                                 role: elChild.attributes.role || '',
                                 ref: elChild.attributes.ref,
