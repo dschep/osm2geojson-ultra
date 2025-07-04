@@ -1,4 +1,4 @@
-import type { RefElements } from './ref-elements';
+import type { RefElements } from './ref-elements.js';
 import type { Feature } from 'geojson';
 
 export abstract class OsmObject {

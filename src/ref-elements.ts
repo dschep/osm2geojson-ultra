@@ -1,5 +1,5 @@
-import { LateBinder } from "./late-binder";
-import type { OsmObject } from "./osm-object";
+import { LateBinder } from "./late-binder.js";
+import type { OsmObject } from "./osm-object.js";
 
 export class RefElements extends Map<string, OsmObject> {
     private binders: LateBinder<any>[];
