@@ -22,7 +22,7 @@ This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2g
     [`make`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_make)
 * Properties have a different structure (`id` and `type` are prefixed with `@` and other non-tag
   meta data such as `changeset` is within a `@meta` key)
-* Only distributed as an ES Module
+* Only distributed as an ES Module via NPM
 
 Usage
 -----
@@ -38,14 +38,6 @@ Usage:
 ```js
 import osm2geojson from 'osm2geojson-ultra';
 let geojson = osm2geojson(osm, opts);
-```
-
-### In the Browser
-```html
-<script type="module">
-    import osm2geojson from 'https://cdn.skypack.dev/osm2geojson-ultra';
-    let geojson = osm2geojson(osm, opts);
-</script>
 ```
 
 API
