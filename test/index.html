@@ -1,14 +1,21 @@
 <!--
-demo page / introduction for osm2geojson-lite
-https://github.com/tibetty/osm2geojson-lite
+demo page / introduction for osm2geojson-ulra
+https://github.com/dschep/osm2geojson-ultra
 this page is based on https://github.com/aaronlidman/osm-and-geojson (c)Aaron Lidman, WTFPL
 -->
 <html>
 <head>
-    <title>osm2geojson-lite</title>
+    <title>osm2geojson-ultra</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../dist/web/osm2geojson-lite.js"></script>
-    <script type="text/javascript">
+    <script type="importmap">
+      {
+        "imports": {
+          "txml": "https://cdn.skypack.dev/pin/txml@v5.1.1-NIcckIvHKT03TetZ0sh3/mode=imports,min/optimized/txml.js"
+        }
+      }
+    </script>
+    <script type="module">
+        import osm2geojson from "../dist/index.js";
         $(() => {
             $("#toGeo").click(e => {
                 e.preventDefault();
@@ -286,9 +293,9 @@ this page is based on https://github.com/aaronlidman/osm-and-geojson (c)Aaron Li
 </head>
 <body>
         <div id="snackbar"> [Used to display the result of the geojsonlint's validation] </div>
-        <a href="https://github.com/tibetty/osm2geojson-lite"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s.cdpn.io/31787/forkme_right_blue.png" alt="Fork me on GitHub"></a>
+        <a href="https://github.com/dschep/osm2geojson-ultra"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s.cdpn.io/31787/forkme_right_blue.png" alt="Fork me on GitHub"></a>
         <div id="top">
-            <span id="name">osm2geojson-lite</span> converts OSM data to GeoJSON.
+            <span id="name">osm2geojson-ultra</span> converts OSM data to GeoJSON.
         </div>
         <div id="example">
             <div id="left">
@@ -307,30 +314,27 @@ this page is based on https://github.com/aaronlidman/osm-and-geojson (c)Aaron Li
             </div>
         </div>
         <div id="about">
-            <p>osm2geojson-lite is a lightweight (not as lightweight as xml2geojson-lite though) yet faster convertor for OSM data in XML or JSON formats to GeoJSON - much faster (the more complex the data source is, the more performance advantages it posesses) than osmtogeojson in most situations - implemented in pure JavaScript without any 3rd party dependency, please find more details from its <a class="link" target="_blank" href="https://www.npmjs.com/package/osm2geojson-lite">npm homepage</a></p>
+            <p>osm2geojson-ultra is faster &amp; more complete convertor for OSM data in XML or JSON formats to GeoJSON - much faster (the more complex the data source is, the more performance advantages it posesses) than osmtogeojson in most situations - implemented in TypeScript with <a href="https://txml.github.io/" class="link" target="_blank">txml</a>, please find more details from its <a class="link" target="_blank" href="https://github.com/dschep/osm2geojson-ultra">github repo</a></p>
             <span style="font-weight: bold;">Usage: </span>
             <ul>
                 <li>In the browser:</li>
                 <div class="code-container">
-                    <code>&lt;script src='your/path/to/osm2geojson-lite.js'/&gt;</code>
-                </div>
-                <div class="code-container">
-                    <code>osm2geojson(osm, opts);</code>
+                    <code>&lt;script type=&quot;module&quot;&gt;<br>import osm2geojson from 'https://cdn.skypack.dev/osm2geojson-ultra';<br>osm2geojson(osm, opts);<br>&lt;/script&gt;</code>
                 </div>
                 
                 <li>As a nodejs library:</li>
                 <div class="code-container">
-                    <code>$ npm install osm2geojson-lite</code>
+                    <code>$ npm install osm2geojson-ultra</code>
                 </div>
                 <div class="code-container">
-                    <code>const osm2geojson = require('osm2geojson-lite');<br>osm2geojson(osm, opts);</code>
+                    <code>import osm2geojson from 'osm2geojson-ultra';<br>osm2geojson(osm, opts);</code>
                 </div>
             </ul>
-            Read more about the API in the official <a class="link" target="_blank" href="https://github.com/tibetty/osm2geojson-lite#api">documentation</a>.
+            Read more about the API in the official <a class="link" target="_blank" href="https://github.com/dschep/osm2geojson-ultra#api">documentation</a>.
             <div id="download">
-                <p><a class="button" href="https://raw.githubusercontent.com/tibetty/osm2geojson-lite/master/dist/osm2geojson-lite.js">Download osm2geojson-lite.js</a><br/><br/>
-                    github: <a class="link" target="_blank" href="https://github.com/tibetty/osm2geojson-lite">tibetty/osm2geojson-lite</a><br/>
-                    npm: <a class="link" target="_blank" href="https://npmjs.org/package/osm2geojson-lite">osm2geojson-lite</a><br/>
+                <p><a class="button" href="https://raw.githubusercontent.com/dschep/osm2geojson-ultra/master/dist/osm2geojson-ultra.js">Download osm2geojson-ultra.js</a><br/><br/>
+                    github: <a class="link" target="_blank" href="https://github.com/dschep/osm2geojson-ultra">dschep/osm2geojson-ultra</a><br/>
+                    npm: <a class="link" target="_blank" href="https://npmjs.org/package/osm2geojson-ultra">osm2geojson-ultra</a><br/>
                 </p>
             </div>
         </div>

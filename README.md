@@ -36,16 +36,16 @@ Installation:
 Usage:
 
 ```js
-    import osm2geojson from 'osm2geojson-ultra';
-    let geojson = osm2geojson(osm, opts);
+import osm2geojson from 'osm2geojson-ultra';
+let geojson = osm2geojson(osm, opts);
 ```
 
 ### In the Browser
 ```html
-    <script src='your/path/to/osm2geojson-ultra.js'/>
-```
-```js
+<script type="module">
+    import osm2geojson from 'https://cdn.skypack.dev/osm2geojson-ultra';
     let geojson = osm2geojson(osm, opts);
+</script>
 ```
 
 API
