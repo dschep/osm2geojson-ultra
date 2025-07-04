@@ -1,6 +1,6 @@
-import { OsmObject } from "./osm-object";
-import { strArrayToFloat } from "./utils";
-import type { RefElements } from "./ref-elements";
+import { OsmObject } from "./osm-object.js";
+import { strArrayToFloat } from "./utils.js";
+import type { RefElements } from "./ref-elements.js";
 import type { Feature } from "geojson";
 
 export type LatLon = { lat: string, lon: string };

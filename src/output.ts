@@ -1,6 +1,6 @@
-import { OsmObject } from "./osm-object";
-import { strArrayToFloat } from "./utils";
-import type { RefElements } from "./ref-elements";
+import { OsmObject } from "./osm-object.js";
+import { strArrayToFloat } from "./utils.js";
+import type { RefElements } from "./ref-elements.js";
 import type { Feature, GeometryObject } from "geojson";
 
 export class Output extends OsmObject {

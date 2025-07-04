@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "esnext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true,
         "strictNullChecks": true,
-        "outDir": "dist/node",
+        "outDir": "dist",
         "strict": true,
         "target": "es2017"
     },

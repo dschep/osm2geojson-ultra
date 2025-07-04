@@ -7,6 +7,7 @@
     "bench": "npm install && node otg-bench.js && node o2gl-bench.js",
     "test": "node test.js"
   },
+  "type": "module",
   "dependencies": {
     "osmtogeojson": "^3.0.0-beta.4",
     "xmldom": "^0.6.0"

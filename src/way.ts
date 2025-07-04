@@ -1,10 +1,10 @@
 import { Feature } from "geojson";
-import { OsmObject } from "./osm-object";
-import { LatLon, Node } from "./node";
-import { LateBinder } from "./late-binder";
-import { isRing, ringDirection, strArrayArrayToFloat } from "./utils";
-import polygonTags from './polytags.json';
-import type { RefElements } from "./ref-elements";
+import { OsmObject } from "./osm-object.js";
+import { LatLon, Node } from "./node.js";
+import { LateBinder } from "./late-binder.js";
+import { isRing, ringDirection, strArrayArrayToFloat } from "./utils.js";
+import polygonTags from './polytags.json' with { type: "json" };
+import type { RefElements } from "./ref-elements.js";
 
 
 export class Way extends OsmObject {

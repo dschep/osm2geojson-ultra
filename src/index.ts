@@ -1,11 +1,11 @@
 import { parse } from 'txml';
-import { purgeProps } from './utils';
-import { LatLon, Node } from './node';
-import { OsmObject } from './osm-object';
-import { Output } from './output';
-import { Way } from './way';
-import { Relation } from './relation';
-import { RefElements } from './ref-elements';
+import { purgeProps } from './utils.js';
+import { LatLon, Node } from './node.js';
+import { OsmObject } from './osm-object.js';
+import { Output } from './output.js';
+import { Way } from './way.js';
+import { Relation } from './relation.js';
+import { RefElements } from './ref-elements.js';
 import type { Feature, FeatureCollection, GeometryObject } from 'geojson';
 
 interface IOptions {
@@ -285,4 +285,4 @@ function osm2geojson(osm: string | { [k: string]: any }, opts?: IOptions): Featu
     return { type: 'FeatureCollection', features: featureArray };
 };
 
-export = osm2geojson;
+export default osm2geojson;

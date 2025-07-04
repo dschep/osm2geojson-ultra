@@ -1,4 +1,4 @@
-import { addToMap, coordsToKey, first, getFirstFromMap, isRing, last, removeFromMap, ringDirection, strArrayArrayToFloat } from "./utils";
+import { addToMap, coordsToKey, first, getFirstFromMap, isRing, last, removeFromMap, ringDirection, strArrayArrayToFloat } from "./utils.js";
 import type { Way } from "./way";
 
 const enum MergeType {

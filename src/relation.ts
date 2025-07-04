@@ -1,10 +1,10 @@
-import { OsmObject } from "./osm-object";
-import { Way } from "./way";
-import { Node } from "./node";
-import { WayCollection } from "./way-collection";
-import { LateBinder } from "./late-binder";
-import { first, pointInsidePolygon } from "./utils";
-import type { RefElements } from "./ref-elements";
+import { OsmObject } from "./osm-object.js";
+import { Way } from "./way.js";
+import { Node } from "./node.js";
+import { WayCollection } from "./way-collection.js";
+import { LateBinder } from "./late-binder.js";
+import { first, pointInsidePolygon } from "./utils.js";
+import type { RefElements } from "./ref-elements.js";
 import type { BBox, Feature, LineString, MultiLineString, MultiPoint, MultiPolygon, Point, Polygon } from "geojson";
 
 export class Relation extends OsmObject {
