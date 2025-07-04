@@ -11,7 +11,8 @@
         35.8984245
       ],
       "properties": {
-        "id": "relation/1543125",
+        "@id": 1543125,
+        "@type": "relation",
         "ISO3166-2": "JP-13",
         "admin_level": "4",
         "boundary": "administrative",
@@ -59128,9 +59129,12 @@
       "type": "Feature",
       "id": "node/265018692",
       "properties": {
-        "id": "node/265018692",
-        "ref": 265018692,
-        "role": "admin_centre"
+        "@id": 265018692,
+        "@type": "node",
+        "@meta": {
+          "ref": 265018692,
+          "role": "admin_centre"
+        }
       },
       "geometry": {
         "type": "Point",
@@ -59144,9 +59148,12 @@
       "type": "Feature",
       "id": "node/4351358847",
       "properties": {
-        "id": "node/4351358847",
-        "ref": 4351358847,
-        "role": "label"
+        "@id": 4351358847,
+        "@type": "node",
+        "@meta": {
+          "ref": 4351358847,
+          "role": "label"
+        }
       },
       "geometry": {
         "type": "Point",

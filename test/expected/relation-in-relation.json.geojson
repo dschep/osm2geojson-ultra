@@ -5,7 +5,8 @@
       "type": "Feature",
       "id": "relation/6",
       "properties": {
-        "id": "relation/6",
+        "@id": 6,
+        "@type": "relation",
         "name": "Relation 2"
       },
       "geometry": {

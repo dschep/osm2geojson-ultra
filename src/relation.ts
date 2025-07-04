@@ -79,7 +79,7 @@ export class Relation extends OsmObject {
                     }
                     for (const [k, v] of Object.entries(member)) {
                         if (['id', 'type', 'lat', 'lon'].indexOf(k) < 0) {
-                            node.addProp(k, v);
+                            node.addMeta(k, v);
                         }
                     }
 

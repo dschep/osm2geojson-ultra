@@ -5,7 +5,8 @@
       "type": "Feature",
       "id": "way/1",
       "properties": {
-        "id": "way/1"
+        "@id": "1",
+        "@type": "way"
       },
       "geometry": {
         "type": "LineString",

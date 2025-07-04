@@ -10,14 +10,14 @@ export abstract class OsmObject {
     private type: string;
     private id: string;
     private tags: { [k: string]: string };
-    private props: { [k: string]: string };
+    private meta: { [k: string]: string };
 
     constructor(type: string, id: string, refElems: RefElements) {
         this.type = type;
         this.id = id;
         this.refElems = refElems;
         this.tags = {};
-        this.props = { id: this.getCompositeId() };
+        this.meta = {};
         this.refCount = 0;
         this.hasTag = false;
         if (refElems) {
@@ -35,20 +35,28 @@ export abstract class OsmObject {
         this.hasTag = true;
     }
 
-    public addProp(k: string, v: any) {
-        this.props[k] = v;
+    public addMeta(k: string, v: any) {
+        this.meta[k] = v;
     }
 
-    public addProps(props: { [k: string]: string }) {
-        this.props = Object.assign(this.props, props);
+    public addMetas(meta: { [k: string]: string }) {
+        this.meta = Object.assign(this.meta, meta);
     }
 
     public getCompositeId(): string {
         return `${this.type}/${this.id}`;
     }
 
-    public getProps(): { [k: string]: string } {
-        return Object.assign(this.props, this.tags);
+    public getProps(): { [k: string]: string | { [k: string]: string } } {
+        const props: { [k: string]: string | { [k: string]: string } } = {
+            "@id": this.id,
+            "@type": this.type,
+        };
+        if (Object.keys(this.meta).length > 0) {
+            props["@meta"] = this.meta
+        }
+        Object.assign(props, this.tags);
+        return props;
     }
 
     public abstract toFeatureArray(): Array<Feature<any, any>>;

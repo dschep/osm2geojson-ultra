@@ -11,7 +11,8 @@
         42.6176407
       ],
       "properties": {
-        "id": "relation/912998",
+        "@id": "912998",
+        "@type": "relation",
         "ISO3166-2": "CN-13",
         "admin_level": "4",
         "alt_name": "河北省",
@@ -33197,10 +33198,13 @@
       "type": "Feature",
       "id": "node/3051635970",
       "properties": {
-        "id": "node/3051635970",
-        "role": "admin_centre",
-        "ref": "3051635970",
-        "tags": {}
+        "@id": "3051635970",
+        "@type": "node",
+        "@meta": {
+          "role": "admin_centre",
+          "ref": "3051635970",
+          "tags": {}
+        }
       },
       "geometry": {
         "type": "Point",
@@ -33214,10 +33218,13 @@
       "type": "Feature",
       "id": "node/244080467",
       "properties": {
-        "id": "node/244080467",
-        "role": "label",
-        "ref": "244080467",
-        "tags": {}
+        "@id": "244080467",
+        "@type": "node",
+        "@meta": {
+          "role": "label",
+          "ref": "244080467",
+          "tags": {}
+        }
       },
       "geometry": {
         "type": "Point",

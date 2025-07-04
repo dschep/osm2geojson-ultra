@@ -1,20 +1,21 @@
 {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "id": "point/123",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -100,
-                    40
-                ]
-            },
-            "properties": {
-                "id": "point/123",
-                "name": "rough center of CONUS"
-            }
-        }
-    ]
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "point/123",
+      "properties": {
+        "@id": "123",
+        "@type": "point",
+        "name": "rough center of CONUS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -100,
+          40
+        ]
+      }
+    }
+  ]
 }

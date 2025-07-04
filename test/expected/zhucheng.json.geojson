@@ -11,7 +11,8 @@
         36.2834811
       ],
       "properties": {
-        "id": "relation/3468769",
+        "@id": 3468769,
+        "@type": "relation",
         "admin_level": "6",
         "alt_name": "Zhucheng;诸城",
         "boundary": "administrative",

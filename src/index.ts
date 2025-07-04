@@ -59,7 +59,7 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
             if (elem.tags) {
                 obj.addTags(elem.tags);
             }
-            obj.addProps(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
+            obj.addMetas(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
             obj.setGeometry(elem.geometry);
             continue;
         }
@@ -69,7 +69,7 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
                 if (elem.tags) {
                     node.addTags(elem.tags);
                 }
-                node.addProps(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'lat', 'lon']));
+                node.addMetas(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'lat', 'lon']));
                 node.setLatLng(elem);
                 break;
             case 'way':
@@ -77,7 +77,7 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
                 if (elem.tags) {
                     way.addTags(elem.tags);
                 }
-                way.addProps(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'nodes', 'geometry']));
+                way.addMetas(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'nodes', 'geometry']));
                 if (elem.geometry) {
                     way.setLatLngArray(elem.geometry);
                 } else if (elem.nodes) {
@@ -94,7 +94,7 @@ function analyzeFeaturesFromJson(osm: { [k: string]: any }, refElements: RefElem
                 if (elem.tags) {
                     relation.addTags(elem.tags);
                 }
-                relation.addProps(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'bounds', 'members']));
+                relation.addMetas(purgeProps(elem as { [k: string]: string }, ['id', 'type', 'tags', 'bounds', 'members']));
                 if (elem.members) {
                     for (const member of elem.members) {
                         relation.addMember(member);
@@ -122,7 +122,7 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
             if (elNode.children.find((c: any) => ['point', 'vertex', 'linestring', 'group'].includes(c.tagName))) {
                 // TODO: other derived output geoms
                 const obj = new Output(elNode.tagName as string, elNode.attributes.id as string, refElements);
-                obj.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
+                obj.addMetas(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
                 setTagsFromXML(elNode, obj);
                 const coordinates = [];
                 const geometries: GeometryObject[] = [];
@@ -175,13 +175,13 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
             switch (elNode.tagName) {
                 case 'node':
                     const nd = new Node(elNode.attributes.id, refElements);
-                    nd.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'lon', 'lat']));
+                    nd.addMetas(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'lon', 'lat']));
                     setTagsFromXML(elNode, nd);
                     nd.setLatLng(elNode.attributes as LatLon)
                     break;
                 case 'way':
                     const way = new Way(elNode.attributes.id, refElements);
-                    way.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'nodes', 'geometry']));
+                    way.addMetas(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'nodes', 'geometry']));
                     setTagsFromXML(elNode, way);
                     for (const elChild of elNode.children) {
                         if (elChild.tagName === "nd") {

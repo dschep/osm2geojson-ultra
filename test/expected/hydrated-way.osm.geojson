@@ -5,7 +5,8 @@
       "type": "Feature",
       "id": "way/37173117",
       "properties": {
-        "id": "way/37173117",
+        "@id": "37173117",
+        "@type": "way",
         "highway": "residential"
       },
       "geometry": {

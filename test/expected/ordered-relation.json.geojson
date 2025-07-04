@@ -5,7 +5,8 @@
       "type": "Feature",
       "id": "relation/5",
       "properties": {
-        "id": "relation/5",
+        "@id": 5,
+        "@type": "relation",
         "name": "Closed route relation"
       },
       "geometry": {

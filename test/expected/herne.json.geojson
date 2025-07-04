@@ -11,7 +11,8 @@
         51.5733207
       ],
       "properties": {
-        "id": "relation/62396",
+        "@id": 62396,
+        "@type": "relation",
         "TMC:cid_58:tabcd_1:Class": "Area",
         "TMC:cid_58:tabcd_1:LCLversion": "8.00",
         "TMC:cid_58:tabcd_1:LocationCode": "463",
@@ -4860,9 +4861,12 @@
       "type": "Feature",
       "id": "node/21315295",
       "properties": {
-        "id": "node/21315295",
-        "ref": 21315295,
-        "role": "admin_centre"
+        "@id": 21315295,
+        "@type": "node",
+        "@meta": {
+          "ref": 21315295,
+          "role": "admin_centre"
+        }
       },
       "geometry": {
         "type": "Point",

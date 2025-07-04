@@ -5,12 +5,15 @@
       "type": "Feature",
       "id": "way/120852101",
       "properties": {
-        "id": "way/120852101",
-        "bounds": {
-          "minlat": 31.5902539,
-          "minlon": 34.7033784,
-          "maxlat": 31.6146864,
-          "maxlon": 34.7139463
+        "@id": 120852101,
+        "@type": "way",
+        "@meta": {
+          "bounds": {
+            "minlat": 31.5902539,
+            "minlon": 34.7033784,
+            "maxlat": 31.6146864,
+            "maxlon": 34.7139463
+          }
         },
         "intermittent": "yes",
         "name": "נחל יואב",
