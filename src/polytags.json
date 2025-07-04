@@ -1,30 +1,14 @@
 {
   "building": {},
   "highway": {
-    "whitelist": [
-      "services",
-      "rest_area",
-      "escape",
-      "elevator"
-    ]
+    "whitelist": ["services", "rest_area", "escape", "elevator"]
   },
   "natural": {
-    "blacklist": [
-      "coastline",
-      "cliff",
-      "ridge",
-      "arete",
-      "tree_row"
-    ]
+    "blacklist": ["coastline", "cliff", "ridge", "arete", "tree_row"]
   },
   "landuse": {},
   "waterway": {
-    "whitelist": [
-      "riverbank",
-      "dock",
-      "boatyard",
-      "dam"
-    ]
+    "whitelist": ["riverbank", "dock", "boatyard", "dam"]
   },
   "amenity": {},
   "leisure": {},
@@ -39,36 +23,20 @@
     ]
   },
   "railway": {
-    "whitelist": [
-      "station",
-      "turntable",
-      "roundhouse",
-      "platform"
-    ]
+    "whitelist": ["station", "turntable", "roundhouse", "platform"]
   },
   "area": {},
   "boundary": {},
   "man_made": {
-    "blacklist": [
-      "cutline",
-      "embankment",
-      "pipeline"
-    ]
+    "blacklist": ["cutline", "embankment", "pipeline"]
   },
   "power": {
-    "whitelist": [
-      "plant",
-      "substation",
-      "generator",
-      "transformer"
-    ]
+    "whitelist": ["plant", "substation", "generator", "transformer"]
   },
   "place": {},
   "shop": {},
   "aeroway": {
-    "blacklist": [
-      "taxiway"
-    ]
+    "blacklist": ["taxiway"]
   },
   "tourism": {},
   "historic": {},
