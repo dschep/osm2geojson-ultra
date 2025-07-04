@@ -16,7 +16,7 @@ This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2g
 
 ### Difference with osm2geojson-lite
 
-* Uses [txml]() to parse XML
+* Uses [txml](https://github.com/TobiasNickel/tXml) to parse XML
 * Support geometry outputs from Overpass commands such as [`local`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_local)
     [`convert`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_convert), and
     [`make`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_make)
