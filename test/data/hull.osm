@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.62.7 375dc00a">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2025-07-04T15:05:45Z"/>
+
+  <way id="287532402">
+    <linestring>
+      <vertex lat="37.5197628" lon="-77.4691307"/>
+      <vertex lat="37.5200121" lon="-77.4695155"/>
+      <vertex lat="37.5201496" lon="-77.4697404"/>
+      <vertex lat="37.5204158" lon="-77.4703472"/>
+      <vertex lat="37.5204260" lon="-77.4703930"/>
+      <vertex lat="37.5204504" lon="-77.4705145"/>
+      <vertex lat="37.5203040" lon="-77.4709988"/>
+      <vertex lat="37.5202809" lon="-77.4710140"/>
+      <vertex lat="37.5200096" lon="-77.4711446"/>
+      <vertex lat="37.5198294" lon="-77.4712253"/>
+      <vertex lat="37.5162118" lon="-77.4727603"/>
+      <vertex lat="37.5160834" lon="-77.4725009"/>
+      <vertex lat="37.5160037" lon="-77.4716684"/>
+      <vertex lat="37.5160072" lon="-77.4715953"/>
+      <vertex lat="37.5163049" lon="-77.4707259"/>
+      <vertex lat="37.5163975" lon="-77.4705287"/>
+      <vertex lat="37.5168445" lon="-77.4697393"/>
+      <vertex lat="37.5168858" lon="-77.4697086"/>
+      <vertex lat="37.5197456" lon="-77.4691069"/>
+      <vertex lat="37.5197628" lon="-77.4691307"/>
+    </linestring>
+    <tag k="bicycle" v="yes"/>
+    <tag k="foot" v="yes"/>
+    <tag k="highway" v="path"/>
+    <tag k="mtb:scale" v="3"/>
+    <tag k="mtb:scale:imba" v="2"/>
+    <tag k="name" v="Forest Hill"/>
+    <tag k="surface" v="dirt"/>
+  </way>
+
+</osm>
+

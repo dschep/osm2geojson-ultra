@@ -119,19 +119,57 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
 
     for (const rootNode of parsed) {
         for (const elNode of rootNode.children) {
-            if (elNode.children.find((c: any) => ['point'].includes(c.tagName))) {
+            if (elNode.children.find((c: any) => ['point', 'vertex', 'linestring', 'group'].includes(c.tagName))) {
                 // TODO: other derived output geoms
                 const obj = new Output(elNode.tagName as string, elNode.attributes.id as string, refElements);
                 obj.addProps(purgeProps(elNode.attributes as { [k: string]: string }, ['id', 'type', 'tags', 'geometry']));
+                setTagsFromXML(elNode, obj);
+                const coordinates = [];
+                const geometries = [];
                 for (const elChild of elNode.children) {
-                    if (elChild.tagName === 'point') {
-                        obj.setGeometry({
-                            type: "Point",
-                            coordinates: [parseFloat(elChild.attributes.lon), parseFloat(elChild.attributes.lat)],
-                        });
+                    switch (elChild.tagName) {
+                        case 'point':
+                            obj.setGeometry({
+                                type: "Point",
+                                coordinates: [parseFloat(elChild.attributes.lon), parseFloat(elChild.attributes.lat)],
+                            });
+                            break;
+                        case 'vertex':
+                            coordinates.push([parseFloat(elChild.attributes.lon), parseFloat(elChild.attributes.lat)]);
+                            break;
+                        case 'linestring':
+                            const ring = [];
+                            for (const vertex of elChild.children) {
+                                ring.push([parseFloat(vertex.attributes.lon), parseFloat(vertex.attributes.lat)]);
+                            }
+                            obj.setGeometry({ type: "Polygon", coordinates: [ring] });
+                            break;
+                        case 'group':
+                            const groupCoords = [];
+                            for (const groupChild of elChild.children) {
+                                switch (groupChild.tagName) {
+                                    case 'point':
+                                        geometries.push({
+                                            type: "Point",
+                                            coordinates: [parseFloat(groupChild.attributes.lon), parseFloat(groupChild.attributes.lat)],
+                                        });
+                                        break;
+                                    case 'vertex':
+                                        groupCoords.push([parseFloat(groupChild.attributes.lon), parseFloat(groupChild.attributes.lat)]);
+                                        break;
+                                }
+                            }
+                            if (groupCoords.length > 0) {
+                                geometries.push({ type: "LineString", coordinates: groupCoords });
+                            }
+                            break;
                     }
                 }
-                setTagsFromXML(elNode, obj);
+                if (coordinates.length > 0) {
+                    obj.setGeometry({ type: "LineString", coordinates });
+                } else if (geometries.length > 0) {
+                    obj.setGeometry({ type: "GeometryCollection", geometries });
+                }
                 continue
             }
             switch (elNode.tagName) {
