@@ -1,14 +1,18 @@
-osm2geojson-lite
+osm2geojson-ultra
 ============
 
-[![NPM Version](https://img.shields.io/npm/v/osm2geojson-lite)](https://www.npmjs.com/package/osm2geojson-lite) [![Codecov](https://img.shields.io/codecov/c/github/tibetty/osm2geojson-lite/main.svg)](https://codecov.io/gh/tibetty/osm2geojson-lite/)
+[![NPM Version](https://img.shields.io/npm/v/osm2geojson-ultra)](https://www.npmjs.com/package/osm2geojson-ultra)
 
 
-A lightweight (not as lightweight as xml2geojson though) yet faster convertor for [OSM](http://openstreetmap.org) [data](http://wiki.openstreetmap.org/wiki/OSM_XML) whatever in XML or JSON formats to [GeoJSON](http://www.geojson.org/) - much faster (the more complex the data source is, the more performance advantages it posesses) than osmtogeojson in most situations - implemented in pure JavaScript without any 3rd party dependency.
+A faster & more complete convertor for [OSM](http://openstreetmap.org) & [Overpass](https://overpass-api.de/) data in
+[XML](http://wiki.openstreetmap.org/wiki/OSM_XML) or [JSON](https://wiki.openstreetmap.org/wiki/OSM_JSON) formats to
+[GeoJSON](http://www.geojson.org/) - much faster (the more complex the data source is,
+the more performance advantages it posesses) than osmtogeojson in most situations and faster than osm2geojson-lite -
+implemented in TypeScript using [txml](https://github.com/TobiasNickel/tXml) to parse XML.
 
 History
 -----
-An internal function inside [query-geo-boundary](https://www.npmjs.com/package/query-geo-boundary) &rightarrow; stripped out to handle OSM XML only [xml2geojson-lite](https://www.npmjs.com/package/xml2geojson-lite) &rightarrow; this library that supports both OSM XML and OSM/Overpass JSON
+This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2geojson-lite) to add support for more overpass geometry output types and to use a different XML parser.
 
 Usage
 -----
@@ -17,18 +21,18 @@ Usage
 
 Installation:
 
-    $ npm install osm2geojson-lite
+    $ npm install osm2geojson-ultra
 
 Usage:
 
 ```js
-    import osm2geojson from 'osm2geojson-lite';
+    import osm2geojson from 'osm2geojson-ultra';
     let geojson = osm2geojson(osm, opts);
 ```
 
 ### In the Browser
 ```html
-    <script src='your/path/to/osm2geojson-lite.js'/>
+    <script src='your/path/to/osm2geojson-ultra.js'/>
 ```
 ```js
     let geojson = osm2geojson(osm, opts);
@@ -58,17 +62,72 @@ Performance
 $ cd test
 $ npm run bench
 ```
-1. XML
-   
-| zhucheng  | hebei    | tokyodo | usa  |
-|-----------|----------|---------|------|
-| >2.5x     | >4.0x    | >3.0x   | >3.0x|
 
-2. Overpass JSON
-   
-| zhucheng  | hebei    | tokyodo | usa  |
-|-----------|----------|---------|------|
-| >2.5x     | >11.0x   | >7.0x   | >5.0x|
+### osm2geojson-ultra
+```
+==========xml processing performance results==========
+---processing zhucheng.osm---
+-> 42ms was taken for 100 rounds
+---processing hebei.osm---
+-> 376ms was taken for 100 rounds
+---processing tokyodo.osm---
+-> 890ms was taken for 100 rounds
+---processing usa.osm---
+-> 10759ms was taken for 100 rounds
+==========json processing performance results==========
+---processing zhucheng.json---
+-> 7ms was taken for 100 rounds
+---processing hebei.json---
+-> 102ms was taken for 100 rounds
+---processing tokyodo.json---
+-> 322ms was taken for 100 rounds
+---processing usa.json---
+-> 5497ms was taken for 100 rounds
+```
+
+### osm2geojson-lite
+```
+==========xml processing performance results==========
+---processing zhucheng.osm---
+-> 56ms was taken for 100 rounds
+---processing hebei.osm---
+-> 557ms was taken for 100 rounds
+---processing tokyodo.osm---
+-> 1201ms was taken for 100 rounds
+---processing usa.osm---
+-> 12904ms was taken for 100 rounds
+==========json processing performance results==========
+---processing zhucheng.json---
+-> 8ms was taken for 100 rounds
+---processing hebei.json---
+-> 106ms was taken for 100 rounds
+---processing tokyodo.json---
+-> 332ms was taken for 100 rounds
+---processing usa.json---
+-> 5553ms was taken for 100 rounds
+```
+
+### overpasstogeojson
+```
+==========xml processing performance results==========
+---processing zhucheng.osm---
+-> 174ms was taken for 100 rounds
+---processing hebei.osm---
+-> 3389ms was taken for 100 rounds
+---processing tokyodo.osm---
+-> 4108ms was taken for 100 rounds
+---processing usa.osm---
+-> 39013ms was taken for 100 rounds
+==========json processing performance results==========
+---processing zhucheng.json---
+-> 33ms was taken for 100 rounds
+---processing hebei.json---
+-> 2093ms was taken for 100 rounds
+---processing tokyodo.json---
+-> 1128ms was taken for 100 rounds
+---processing usa.json---
+-> 11339ms was taken for 100 rounds
+```
 
 
 Correctness
@@ -83,7 +142,7 @@ Node.JS version
   
 Dependencies
 ---
-  - No 3rd party dependency
+  - [txml](https://github.com/TobiasNickel/tXml)
 
 License
 ---
@@ -91,6 +150,8 @@ MIT
 
 Collaborators
 ---
+* [dschep](https://github.com/dschep)
+#### osm2geojson-lite maintainers
 * [tibetty](https://github.com/tibetty/)
 * [HarelM](https://github.com/HarelM)
 
