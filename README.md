@@ -14,7 +14,7 @@ History
 -----
 This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2geojson-lite) to add support for more overpass geometry output types and to use a different XML parser.
 
-### Difference with osm2geojson-lite
+### Differences with osm2geojson-lite
 
 * Uses [txml](https://github.com/TobiasNickel/tXml) to parse XML
 * Support geometry outputs from Overpass commands such as [`local`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_local)
