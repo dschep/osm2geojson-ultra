@@ -59110,11 +59110,9 @@
       "properties": {
         "@id": "265018692",
         "@type": "node",
-        "@meta": {
-          "role": "admin_centre",
-          "ref": "265018692",
-          "tags": {}
-        }
+        "@role": "admin_centre",
+        "@ref": "265018692",
+        "@tags": {}
       },
       "geometry": {
         "type": "Point",
@@ -59130,11 +59128,9 @@
       "properties": {
         "@id": "4351358847",
         "@type": "node",
-        "@meta": {
-          "role": "label",
-          "ref": "4351358847",
-          "tags": {}
-        }
+        "@role": "label",
+        "@ref": "4351358847",
+        "@tags": {}
       },
       "geometry": {
         "type": "Point",

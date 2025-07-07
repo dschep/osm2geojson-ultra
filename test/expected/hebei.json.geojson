@@ -37579,10 +37579,8 @@
       "properties": {
         "@id": 3051635970,
         "@type": "node",
-        "@meta": {
-          "ref": 3051635970,
-          "role": "admin_centre"
-        }
+        "@ref": 3051635970,
+        "@role": "admin_centre"
       },
       "geometry": {
         "type": "Point",
@@ -37598,10 +37596,8 @@
       "properties": {
         "@id": 244080467,
         "@type": "node",
-        "@meta": {
-          "ref": 244080467,
-          "role": "label"
-        }
+        "@ref": 244080467,
+        "@role": "label"
       },
       "geometry": {
         "type": "Point",

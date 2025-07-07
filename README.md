@@ -20,8 +20,7 @@ This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2g
 * Support geometry outputs from Overpass commands such as [`local`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_local)
     [`convert`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_convert), and
     [`make`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_make)
-* Properties have a different structure (`id` and `type` are prefixed with `@` and other non-tag
-  meta data such as `changeset` is within a `@meta` key)
+* Properties have a different structure (`id`, `type`, and other non-tag properties are prefixed with `@`)
 * Only distributed as an ES Module
 
 Usage
@@ -146,9 +145,9 @@ You can copy the converted results to [geojsonlint](http://geojsonlint.com) for 
 
 The client side example shipped along with this package, `index.html` - due to CORS limitation, the direct post to geojsonlint is blocked, so there's a "copy to clipboard" button for you to ease the validation.
 
-Node.JS version
+JS version
 ---
-  ES5/ES6 features
+  ES 2019
   
 Dependencies
 ---

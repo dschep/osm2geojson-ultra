@@ -43,7 +43,7 @@
   "optionalDependencies": {
     "@types/geojson": "^7946.0.16"
   },
-  "version": "2.0.0",
+  "version": "2.0.1",
   "directories": {
     "src": "src",
     "test": "test"

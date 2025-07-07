@@ -48,15 +48,19 @@ export abstract class OsmObject {
   }
 
   public getProps(): { [k: string]: string | { [k: string]: string } } {
-    const props: { [k: string]: string | { [k: string]: string } } = {
+    return {
       "@id": this.id,
       "@type": this.type,
+      ...Object.fromEntries(
+        Object.entries(this.meta).map(([k, v]) => ["@" + k, v]),
+      ),
+      ...Object.fromEntries(
+        Object.entries(this.tags).map(([k, v]) => [
+          k.startsWith("@") ? "@" + k : k,
+          v,
+        ]),
+      ),
     };
-    if (Object.keys(this.meta).length > 0) {
-      props["@meta"] = this.meta;
-    }
-    Object.assign(props, this.tags);
-    return props;
   }
 
   public abstract toFeatureArray(): Array<Feature<any, any>>;

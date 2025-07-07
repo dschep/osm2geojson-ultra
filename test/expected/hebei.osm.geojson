@@ -33200,11 +33200,9 @@
       "properties": {
         "@id": "3051635970",
         "@type": "node",
-        "@meta": {
-          "role": "admin_centre",
-          "ref": "3051635970",
-          "tags": {}
-        }
+        "@role": "admin_centre",
+        "@ref": "3051635970",
+        "@tags": {}
       },
       "geometry": {
         "type": "Point",
@@ -33220,11 +33218,9 @@
       "properties": {
         "@id": "244080467",
         "@type": "node",
-        "@meta": {
-          "role": "label",
-          "ref": "244080467",
-          "tags": {}
-        }
+        "@role": "label",
+        "@ref": "244080467",
+        "@tags": {}
       },
       "geometry": {
         "type": "Point",

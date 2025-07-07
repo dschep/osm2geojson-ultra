@@ -4863,10 +4863,8 @@
       "properties": {
         "@id": 21315295,
         "@type": "node",
-        "@meta": {
-          "ref": 21315295,
-          "role": "admin_centre"
-        }
+        "@ref": 21315295,
+        "@role": "admin_centre"
       },
       "geometry": {
         "type": "Point",

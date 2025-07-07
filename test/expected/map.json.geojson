@@ -7,13 +7,11 @@
       "properties": {
         "@id": 2281802897,
         "@type": "node",
-        "@meta": {
-          "timestamp": "2013-04-26T07:39:31Z",
-          "version": 1,
-          "changeset": 15868943,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-04-26T07:39:31Z",
+        "@version": 1,
+        "@changeset": 15868943,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "amenity": "fountain"
       },
       "geometry": {
@@ -30,13 +28,11 @@
       "properties": {
         "@id": 33200366,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2011-03-24T11:28:17Z",
-          "version": 2,
-          "changeset": 7654992,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2011-03-24T11:28:17Z",
+        "@version": 2,
+        "@changeset": 7654992,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "bicycle": "no",
         "highway": "pedestrian"
       },
@@ -64,13 +60,11 @@
       "properties": {
         "@id": 33748708,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-11-02T18:28:24Z",
-          "version": 3,
-          "changeset": 18679226,
-          "user": "Skombi",
-          "uid": 1380953
-        },
+        "@timestamp": "2013-11-02T18:28:24Z",
+        "@version": 3,
+        "@changeset": 18679226,
+        "@user": "Skombi",
+        "@uid": 1380953,
         "barrier": "wall"
       },
       "geometry": {
@@ -117,13 +111,11 @@
       "properties": {
         "@id": 105582211,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:41Z",
-          "version": 2,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:41Z",
+        "@version": 2,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "yes"
       },
       "geometry": {
@@ -168,13 +160,11 @@
       "properties": {
         "@id": 105582213,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2011-03-24T11:27:44Z",
-          "version": 1,
-          "changeset": 7654992,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2011-03-24T11:27:44Z",
+        "@version": 1,
+        "@changeset": 7654992,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "yes"
       },
       "geometry": {
@@ -197,13 +187,11 @@
       "properties": {
         "@id": 201032335,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:36Z",
-          "version": 1,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:36Z",
+        "@version": 1,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "yes"
       },
       "geometry": {
@@ -236,13 +224,11 @@
       "properties": {
         "@id": 33052937,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-04-26T07:39:33Z",
-          "version": 5,
-          "changeset": 15868943,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-04-26T07:39:33Z",
+        "@version": 5,
+        "@changeset": 15868943,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "amenity": "parking",
         "capacity:disabled": "2",
         "fee": "yes",
@@ -276,13 +262,11 @@
       "properties": {
         "@id": 33189032,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-09-06T15:43:42Z",
-          "version": 8,
-          "changeset": 17705306,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-09-06T15:43:42Z",
+        "@version": 8,
+        "@changeset": 17705306,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "bicycle": "yes",
         "highway": "pedestrian",
         "name": "Kapuzinerstraße - via Cappuccini",
@@ -317,13 +301,11 @@
       "properties": {
         "@id": 105582312,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:40Z",
-          "version": 2,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:40Z",
+        "@version": 2,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "yes"
       },
       "geometry": {
@@ -346,13 +328,11 @@
       "properties": {
         "@id": 106227173,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:47Z",
-          "version": 3,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:47Z",
+        "@version": 3,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "access": "private",
         "highway": "service",
         "service": "driveway"
@@ -385,13 +365,11 @@
       "properties": {
         "@id": 106227181,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:42Z",
-          "version": 2,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:42Z",
+        "@version": 2,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "yes"
       },
       "geometry": {
@@ -440,13 +418,11 @@
       "properties": {
         "@id": 201032299,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-01-13T22:55:35Z",
-          "version": 1,
-          "changeset": 14642447,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-01-13T22:55:35Z",
+        "@version": 1,
+        "@changeset": 14642447,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "building": "terrace"
       },
       "geometry": {
@@ -469,13 +445,11 @@
       "properties": {
         "@id": 201032366,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-04-26T07:39:33Z",
-          "version": 2,
-          "changeset": 15868943,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-04-26T07:39:33Z",
+        "@version": 2,
+        "@changeset": 15868943,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "highway": "service",
         "oneway": "yes",
         "service": "parking_aisle"
@@ -504,13 +478,11 @@
       "properties": {
         "@id": 218973695,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-04-26T07:39:32Z",
-          "version": 1,
-          "changeset": 15868943,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-04-26T07:39:32Z",
+        "@version": 1,
+        "@changeset": 15868943,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "highway": "pedestrian"
       },
       "geometry": {
@@ -537,13 +509,11 @@
       "properties": {
         "@id": 218973696,
         "@type": "way",
-        "@meta": {
-          "timestamp": "2013-04-26T07:39:32Z",
-          "version": 1,
-          "changeset": 15868943,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-04-26T07:39:32Z",
+        "@version": 1,
+        "@changeset": 15868943,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "highway": "footway"
       },
       "geometry": {
@@ -570,13 +540,11 @@
       "properties": {
         "@id": 2385566,
         "@type": "relation",
-        "@meta": {
-          "timestamp": "2013-09-06T20:38:45Z",
-          "version": 6,
-          "changeset": 17709634,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2013-09-06T20:38:45Z",
+        "@version": 6,
+        "@changeset": 17709634,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "network": "lwn",
         "ref": "540",
         "route": "hiking",
@@ -608,13 +576,11 @@
       "properties": {
         "@id": 121733,
         "@type": "relation",
-        "@meta": {
-          "timestamp": "2009-04-27T17:28:49Z",
-          "version": 1,
-          "changeset": 993143,
-          "user": "tyr_asd",
-          "uid": 115612
-        },
+        "@timestamp": "2009-04-27T17:28:49Z",
+        "@version": 1,
+        "@changeset": 993143,
+        "@user": "tyr_asd",
+        "@uid": 115612,
         "type": "multipolygon"
       },
       "geometry": {

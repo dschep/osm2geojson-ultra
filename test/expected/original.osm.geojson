@@ -7,11 +7,9 @@
       "properties": {
         "@id": "196017733",
         "@type": "node",
-        "@meta": {
-          "version": "3",
-          "timestamp": "2010-10-21T18:05:42Z",
-          "changeset": "0"
-        }
+        "@version": "3",
+        "@timestamp": "2010-10-21T18:05:42Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -27,11 +25,9 @@
       "properties": {
         "@id": "196017747",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -47,11 +43,9 @@
       "properties": {
         "@id": "196017762",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -67,11 +61,9 @@
       "properties": {
         "@id": "196017768",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -87,11 +79,9 @@
       "properties": {
         "@id": "196017780",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -107,11 +97,9 @@
       "properties": {
         "@id": "196017806",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -127,11 +115,9 @@
       "properties": {
         "@id": "196017819",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -147,11 +133,9 @@
       "properties": {
         "@id": "196017848",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -167,11 +151,9 @@
       "properties": {
         "@id": "196017940",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-12-26T07:20:22Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2014-12-26T07:20:22Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -187,11 +169,9 @@
       "properties": {
         "@id": "196041737",
         "@type": "node",
-        "@meta": {
-          "version": "6",
-          "timestamp": "2016-10-19T23:49:48Z",
-          "changeset": "0"
-        }
+        "@version": "6",
+        "@timestamp": "2016-10-19T23:49:48Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -207,11 +187,9 @@
       "properties": {
         "@id": "196042012",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2016-11-28T11:07:55Z",
-          "changeset": "0"
-        }
+        "@version": "4",
+        "@timestamp": "2016-11-28T11:07:55Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -227,11 +205,9 @@
       "properties": {
         "@id": "196042162",
         "@type": "node",
-        "@meta": {
-          "version": "9",
-          "timestamp": "2010-05-23T23:09:33Z",
-          "changeset": "0"
-        }
+        "@version": "9",
+        "@timestamp": "2010-05-23T23:09:33Z",
+        "@changeset": "0"
       },
       "geometry": {
         "type": "Point",
@@ -247,11 +223,9 @@
       "properties": {
         "@id": "207689592",
         "@type": "node",
-        "@meta": {
-          "version": "20",
-          "timestamp": "2018-12-20T16:32:28Z",
-          "changeset": "0"
-        },
+        "@version": "20",
+        "@timestamp": "2018-12-20T16:32:28Z",
+        "@changeset": "0",
         "addr:postcode": "790-8571",
         "admin_level": "7",
         "capital": "4",
@@ -2303,11 +2277,9 @@
       "properties": {
         "@id": "691563006",
         "@type": "node",
-        "@meta": {
-          "version": "4",
-          "timestamp": "2014-11-28T13:24:14Z",
-          "changeset": "0"
-        },
+        "@version": "4",
+        "@timestamp": "2014-11-28T13:24:14Z",
+        "@changeset": "0",
         "name": "松前町",
         "place": "town",
         "name:en": "Masaki",
