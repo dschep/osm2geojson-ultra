@@ -77,66 +77,66 @@ $ npm run bench
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 42ms was taken for 100 rounds
+-> 41ms was taken for 100 rounds
 ---processing hebei.osm---
--> 376ms was taken for 100 rounds
+-> 372ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 890ms was taken for 100 rounds
+-> 882ms was taken for 100 rounds
 ---processing usa.osm---
--> 10759ms was taken for 100 rounds
+-> 10778ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 7ms was taken for 100 rounds
+-> 8ms was taken for 100 rounds
 ---processing hebei.json---
--> 102ms was taken for 100 rounds
+-> 105ms was taken for 100 rounds
 ---processing tokyodo.json---
 -> 322ms was taken for 100 rounds
 ---processing usa.json---
--> 5497ms was taken for 100 rounds
+-> 5464ms was taken for 100 rounds
 ```
 
 ### osm2geojson-lite
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 56ms was taken for 100 rounds
+-> 55ms was taken for 100 rounds
 ---processing hebei.osm---
--> 557ms was taken for 100 rounds
+-> 554ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 1201ms was taken for 100 rounds
+-> 1188ms was taken for 100 rounds
 ---processing usa.osm---
--> 12904ms was taken for 100 rounds
+-> 12770ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 8ms was taken for 100 rounds
+-> 7ms was taken for 100 rounds
 ---processing hebei.json---
--> 106ms was taken for 100 rounds
+-> 104ms was taken for 100 rounds
 ---processing tokyodo.json---
--> 332ms was taken for 100 rounds
+-> 320ms was taken for 100 rounds
 ---processing usa.json---
--> 5553ms was taken for 100 rounds
+-> 5554ms was taken for 100 rounds
 ```
 
 ### overpasstogeojson
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 174ms was taken for 100 rounds
+-> 179ms was taken for 100 rounds
 ---processing hebei.osm---
--> 3389ms was taken for 100 rounds
+-> 3488ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 4108ms was taken for 100 rounds
+-> 4255ms was taken for 100 rounds
 ---processing usa.osm---
--> 39013ms was taken for 100 rounds
+-> 39755ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 33ms was taken for 100 rounds
+-> 34ms was taken for 100 rounds
 ---processing hebei.json---
--> 2093ms was taken for 100 rounds
+-> 2086ms was taken for 100 rounds
 ---processing tokyodo.json---
--> 1128ms was taken for 100 rounds
+-> 1040ms was taken for 100 rounds
 ---processing usa.json---
--> 11339ms was taken for 100 rounds
+-> 11273ms was taken for 100 rounds
 ```
 
 

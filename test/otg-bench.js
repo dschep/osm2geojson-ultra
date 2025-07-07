@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const fs = require('fs'),
-	DOMParser = require('xmldom').DOMParser,
-	osmtogeojson = require('osmtogeojson');
+import fs from 'fs';
+import { DOMParser } from 'xmldom';
+import osmtogeojson from 'osmtogeojson';
 
 const rounds = 100;
 console.log('==========xml processing performance results==========');
@@ -22,11 +22,11 @@ for (let file of xmlFiles) {
 console.log('==========json processing performance results==========');
 const jsonFiles = ['zhucheng.json', 'hebei.json', 'tokyodo.json', 'usa.json'];
 for (let file of jsonFiles) {
-	let osm = require(`./data/${file}`);
+	let osm = JSON.parse(fs.readFileSync(`./data/${file}`));
 	console.log(`---processing ${file}---`);
 	let stime = new Date().getTime();
 	for (let i = 0; i < rounds; i++)
 		osmtogeojson(osm);
-	etime = new Date().getTime();
+	let etime = new Date().getTime();
 	console.log(`-> ${etime - stime}ms was taken for ${rounds} rounds`);
 }
