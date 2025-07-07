@@ -43,7 +43,7 @@ let geojson = osm2geojson(osm, opts);
 ### In the Browser
 ```html
 <script type="module">
-    import osm2geojson from 'https://cdn.skypack.dev/osm2geojson-ultra';
+    import osm2geojson from 'https://esm.sh/osm2geojson-ultra';
     let geojson = osm2geojson(osm, opts);
 </script>
 ```
