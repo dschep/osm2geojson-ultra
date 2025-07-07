@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/76217941",
+      "properties": {
+        "@id": "76217941",
+        "@type": "way",
+        "name": "Quarry Pond",
+        "natural": "water",
+        "water": "pond"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-77.4563956",
+          "37.5282881"
+        ]
+      }
+    }
+  ]
+}

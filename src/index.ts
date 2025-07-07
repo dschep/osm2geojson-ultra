@@ -116,6 +116,8 @@ function analyzeFeaturesFromJson(
         );
         if (elem.geometry) {
           way.setLatLngArray(elem.geometry);
+        } else if (elem.center) {
+          way.setCenter(elem.center as LatLon);
         } else if (elem.nodes) {
           for (const n of elem.nodes) {
             way.addNodeRef(n);
@@ -134,6 +136,9 @@ function analyzeFeaturesFromJson(
         }
         if (elem.tags) {
           relation.addTags(elem.tags);
+        }
+        if (elem.center) {
+          relation.setCenter(elem.center as LatLon);
         }
         relation.addMetas(
           purgeProps(elem as { [k: string]: string }, [
@@ -273,14 +278,13 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
             purgeProps(elNode.attributes as { [k: string]: string }, [
               "id",
               "type",
-              "tags",
-              "nodes",
-              "geometry",
             ]),
           );
           setTagsFromXML(elNode, way);
           for (const elChild of elNode.children) {
-            if (elChild.tagName === "nd") {
+            if (elChild.tagName === "center") {
+              way.setCenter(elChild.attributes as LatLon);
+            } else if (elChild.tagName === "nd") {
               if (elChild.attributes.lon && elChild.attributes.lat) {
                 way.addLatLng(elChild.attributes as LatLon);
               } else {
@@ -293,7 +297,9 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
           const rel = new Relation(elNode.attributes.id, refElements);
           setTagsFromXML(elNode, rel);
           for (const elChild of elNode.children) {
-            if (elChild.tagName === "member") {
+            if (elChild.tagName === "center") {
+              rel.setCenter(elChild.attributes as LatLon);
+            } else if (elChild.tagName === "member") {
               const member: { [k: string]: any } = {
                 type: elChild.attributes.type,
                 role: elChild.attributes.role || "",

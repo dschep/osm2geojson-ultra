@@ -9,15 +9,21 @@ import type { RefElements } from "./ref-elements.js";
 export class Way extends OsmObject {
   private latLngArray: Array<LatLon | LateBinder<LatLon>>;
   private isPolygon: boolean;
+  private center: null | LatLon;
 
   constructor(id: string, refElems: RefElements) {
     super("way", id, refElems);
     this.latLngArray = [];
     this.isPolygon = false;
+    this.center = null;
   }
 
   public addLatLng(latLng: LatLon) {
     this.latLngArray.push(latLng);
+  }
+
+  public setCenter(center: LatLon) {
+    this.center = center;
   }
 
   public setLatLngArray(latLngArray: Array<LatLon & { [k: string]: any }>) {
@@ -88,6 +94,17 @@ export class Way extends OsmObject {
         return [feature];
       }
 
+      return [feature];
+    } else if (this.center !== null) {
+      const feature: Feature<any, any> = {
+        type: "Feature",
+        id: this.getCompositeId(),
+        properties: this.getProps(),
+        geometry: {
+          type: "Point",
+          coordinates: [this.center.lon, this.center.lat],
+        },
+      };
       return [feature];
     }
 

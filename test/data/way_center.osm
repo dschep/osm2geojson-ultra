@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API 0.7.61.8 b1080abd">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2025-07-07T14:26:15Z"/>
+
+  <way id="76217941">
+    <center lat="37.5282881" lon="-77.4563956"/>
+    <nd ref="899219384"/>
+    <nd ref="12077955339"/>
+    <nd ref="12077955338"/>
+    <nd ref="12077955337"/>
+    <nd ref="12077955336"/>
+    <nd ref="899219386"/>
+    <nd ref="899219389"/>
+    <nd ref="12077955353"/>
+    <nd ref="899219390"/>
+    <nd ref="12077955352"/>
+    <nd ref="12077955351"/>
+    <nd ref="12077955350"/>
+    <nd ref="899219392"/>
+    <nd ref="12077955349"/>
+    <nd ref="899219396"/>
+    <nd ref="12077955348"/>
+    <nd ref="12077955347"/>
+    <nd ref="12077955346"/>
+    <nd ref="12077955345"/>
+    <nd ref="12077955344"/>
+    <nd ref="899219397"/>
+    <nd ref="899219399"/>
+    <nd ref="12077955343"/>
+    <nd ref="899219400"/>
+    <nd ref="12077955342"/>
+    <nd ref="899219402"/>
+    <nd ref="12077955341"/>
+    <nd ref="899219403"/>
+    <nd ref="12077955340"/>
+    <nd ref="899219384"/>
+    <tag k="name" v="Quarry Pond"/>
+    <tag k="natural" v="water"/>
+    <tag k="water" v="pond"/>
+  </way>
+
+</osm>

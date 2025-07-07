@@ -20,6 +20,7 @@ This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2g
 * Support geometry outputs from Overpass commands such as [`local`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_local)
     [`convert`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_convert), and
     [`make`](https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#The_statement_make)
+* Support for Overpass `out center;` output
 * Properties have a different structure (`id`, `type`, and other non-tag properties are prefixed with `@`)
 * Only distributed as an ES Module
 

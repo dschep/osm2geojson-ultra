@@ -1,6 +1,6 @@
 import { OsmObject } from "./osm-object.js";
 import { Way } from "./way.js";
-import { Node } from "./node.js";
+import { Node, LatLon } from "./node.js";
 import { WayCollection } from "./way-collection.js";
 import { LateBinder } from "./late-binder.js";
 import { first, pointInsidePolygon } from "./utils.js";
@@ -20,6 +20,7 @@ export class Relation extends OsmObject {
   private relations: (LateBinder<Relation> | Relation)[] = [];
   private nodes: (LateBinder<Node> | Node)[] = [];
   private bounds: number[] | undefined = undefined;
+  private center: null | LatLon = null;
   public ways: (LateBinder<Way> | Way)[] = [];
   public roles: string[] = [];
 
@@ -29,6 +30,10 @@ export class Relation extends OsmObject {
 
   public setBounds(bounds: any[]) {
     this.bounds = bounds;
+  }
+
+  public setCenter(center: LatLon) {
+    this.center = center;
   }
 
   public addMember(member: { [k: string]: any }) {
@@ -245,6 +250,15 @@ export class Relation extends OsmObject {
 
     for (let node of this.nodes) {
       pointFeatures = pointFeatures.concat((node as Node).toFeatureArray());
+    }
+
+    if (this.center !== null) {
+      const feature = Object.assign({}, templateFeature);
+      feature.geometry = {
+        type: "Point",
+        coordinates: [this.center.lon, this.center.lat],
+      };
+      pointFeatures.push(feature);
     }
 
     return [...polygonFeatures, ...stringFeatures, ...pointFeatures];

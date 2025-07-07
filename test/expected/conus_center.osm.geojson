@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "relation/9331155",
+      "properties": {
+        "@id": "9331155",
+        "@type": "relation",
+        "alt_name": "United States Mainland;Conterminus United States;The Lower 48",
+        "alt_name:en": "United States Mainland;Conterminus United States;The Lower 48",
+        "alt_name:es": "Estados Unidos continentales",
+        "alt_name:fr": "États-Unis continentaux",
+        "alt_name:vi": "Hoa Kì lục địa",
+        "boundary": "region",
+        "name": "Contiguous United States",
+        "name:en": "C\u001b[Oontiguous United States",
+        "name:es": "Estados Unidos contiguos",
+        "name:fr": "États-Unis contigus",
+        "name:vi": "Hoa Kỳ lục địa",
+        "note": "The exact definition of CONUS is unclear, but for now let's use &quot;the administrative territory of the U.S. states, excluding Alaska and Hawaii (i.e. Lower 48) plus D.C.&quot;",
+        "place": "region",
+        "short_name": "CONUS",
+        "short_name:en": "CONUS",
+        "type": "boundary",
+        "wikidata": "Q578170",
+        "wikipedia": "en:Contiguous United States"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "-95.9847496",
+          "36.8182397"
+        ]
+      }
+    }
+  ]
+}
