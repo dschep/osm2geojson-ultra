@@ -3,7 +3,7 @@ import { Way } from "./way.js";
 import { Node, LatLon } from "./node.js";
 import { WayCollection } from "./way-collection.js";
 import { LateBinder } from "./late-binder.js";
-import { first, pointInsidePolygon } from "./utils.js";
+import { first, pointInsidePolygon, strArrayToFloat } from "./utils.js";
 import type { RefElements } from "./ref-elements.js";
 import type {
   BBox,
@@ -256,7 +256,7 @@ export class Relation extends OsmObject {
       const feature = Object.assign({}, templateFeature);
       feature.geometry = {
         type: "Point",
-        coordinates: [this.center.lon, this.center.lat],
+        coordinates: strArrayToFloat([this.center.lon, this.center.lat]),
       };
       pointFeatures.push(feature);
     }

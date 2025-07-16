@@ -2,7 +2,12 @@ import { Feature } from "geojson";
 import { OsmObject } from "./osm-object.js";
 import { LatLon, Node } from "./node.js";
 import { LateBinder } from "./late-binder.js";
-import { isRing, ringDirection, strArrayArrayToFloat } from "./utils.js";
+import {
+  isRing,
+  ringDirection,
+  strArrayToFloat,
+  strArrayArrayToFloat,
+} from "./utils.js";
 import polygonTags from "./polytags.json" with { type: "json" };
 import type { RefElements } from "./ref-elements.js";
 
@@ -102,7 +107,7 @@ export class Way extends OsmObject {
         properties: this.getProps(),
         geometry: {
           type: "Point",
-          coordinates: [this.center.lon, this.center.lat],
+          coordinates: strArrayToFloat([this.center.lon, this.center.lat]),
         },
       };
       return [feature];
