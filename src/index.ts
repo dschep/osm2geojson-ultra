@@ -10,11 +10,11 @@ import type { Feature, FeatureCollection, GeometryObject } from "geojson";
 
 interface IOptions {
   /**
-   * When it's set to `true`, the returned geojson will include all elements that meet the specified conditions in `FeatureCollection` format;
-   * otherwise, only the bare geometry of the first `relation` element will be returned.
-   * @default false
+   * An OSM element ID in the form of type/id, eg: way/123 to create a GeoJSON representation of.
+   * If not present, all tagged objects will be converted.
+   * @default undefined
    */
-  completeFeature?: boolean;
+  elementId?: string;
   /**
    * When it's set to `true`, the returned geojson will include all elements with tags (i.e., tagged)
    * until `suppressWay` changes its behavior a bit; otherwise only the unreferenced ones get returned.
@@ -30,17 +30,17 @@ interface IOptions {
 }
 
 function parseOptions(options: IOptions | undefined): {
-  completeFeature: boolean;
+  elementId: string;
   renderTagged: boolean;
   excludeWay: boolean;
 } {
   if (!options) {
-    return { completeFeature: false, renderTagged: false, excludeWay: true };
+    return { elementId: undefined, renderTagged: false, excludeWay: true };
   }
+  let elementId = options.elementId;
   let excludeWay = options.excludeWay === undefined || options.excludeWay;
-  let completeFeature = options.completeFeature ? true : false;
   let renderTagged = options.renderTagged ? true : false;
-  return { completeFeature, renderTagged, excludeWay };
+  return { elementId, renderTagged, excludeWay };
 }
 
 function detectFormat(
@@ -358,7 +358,7 @@ function osm2geojson(
   osm: string | { [k: string]: any },
   opts?: IOptions,
 ): FeatureCollection<GeometryObject> {
-  let { completeFeature, renderTagged, excludeWay } = parseOptions(opts);
+  let { elementId, renderTagged, excludeWay } = parseOptions(opts);
 
   let format = detectFormat(osm);
 
@@ -382,19 +382,20 @@ function osm2geojson(
 
   refElements.bindAll();
 
-  for (const v of refElements.values()) {
-    if (
-      v.refCount > 0 &&
-      (!v.hasTag || !renderTagged || (v instanceof Way && excludeWay))
-    ) {
-      continue;
-    }
-    const features = v.toFeatureArray();
-    // return the first geometry of the first relation element
-    if (v instanceof Relation && !completeFeature && features.length > 0) {
-      return features[0].geometry;
-    }
+  if (elementId) {
+    const features = refElements[elementId].toFeatureArray();
     featureArray = featureArray.concat(features);
+  } else {
+    for (const v of refElements.values()) {
+      if (
+        v.refCount > 0 &&
+        (!v.hasTag || !renderTagged || (v instanceof Way && excludeWay))
+      ) {
+        continue;
+      }
+      const features = v.toFeatureArray();
+      featureArray = featureArray.concat(features);
+    }
   }
 
   return { type: "FeatureCollection", features: featureArray };
