@@ -2,7 +2,12 @@ import { Feature } from "geojson";
 import { OsmObject } from "./osm-object.js";
 import { LatLon, Node } from "./node.js";
 import { LateBinder } from "./late-binder.js";
-import { isRing, ringDirection, strArrayToFloat, strArrayArrayToFloat } from "./utils.js";
+import {
+  isRing,
+  ringDirection,
+  strArrayToFloat,
+  strArrayArrayToFloat,
+} from "./utils.js";
 import polygonTags from "./polytags.json" with { type: "json" };
 import type { RefElements } from "./ref-elements.js";
 
