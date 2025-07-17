@@ -3,5 +3,5 @@ import osm2geojson from "./dist/index.js";
 import fs from "fs";
 
 const text = fs.readFileSync(process.argv[2])
-console.log(osm2geojson(text.toString()))
+console.log(JSON.stringify(osm2geojson(text.toString()), null, 2))
 
