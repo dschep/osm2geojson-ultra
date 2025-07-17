@@ -3,6 +3,28 @@
   "features": [
     {
       "type": "Feature",
+      "id": "node/2281802890",
+      "properties": {
+        "@id": "2281802890",
+        "@type": "node",
+        "@version": "1",
+        "@timestamp": "2013-04-26T07:39:31Z",
+        "@changeset": "15868943",
+        "@uid": "115612",
+        "@user": "tyr_asd",
+        "crossing": "uncontrolled",
+        "highway": "crossing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.2579605,
+          46.4555422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "node/2281802897",
       "properties": {
         "@id": "2281802897",
@@ -50,6 +72,97 @@
           [
             11.2578714,
             46.4554286
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/33748706",
+      "properties": {
+        "@id": "33748706",
+        "@type": "way",
+        "@version": "3",
+        "@timestamp": "2013-03-27T21:58:57Z",
+        "@changeset": "15520809",
+        "@uid": "115612",
+        "@user": "tyr_asd",
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "denomination": "catholic",
+        "name": "Pfarrkirche Sankt Michael",
+        "old_name": "Kapuzinerkirche zur Heimsuchung Mariens",
+        "religion": "christian",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.2570937,
+              46.4552187
+            ],
+            [
+              11.2571261,
+              46.4549719
+            ],
+            [
+              11.2574846,
+              46.4549942
+            ],
+            [
+              11.2574786,
+              46.4550395
+            ],
+            [
+              11.2575715,
+              46.4550453
+            ],
+            [
+              11.2576569,
+              46.4550506
+            ],
+            [
+              11.257641,
+              46.4551715
+            ],
+            [
+              11.2577565,
+              46.4551787
+            ],
+            [
+              11.2577374,
+              46.4553249
+            ],
+            [
+              11.257567,
+              46.4553143
+            ],
+            [
+              11.2575566,
+              46.4553937
+            ],
+            [
+              11.2573601,
+              46.4553814
+            ],
+            [
+              11.2573703,
+              46.4553036
+            ],
+            [
+              11.2570345,
+              46.4552827
+            ],
+            [
+              11.2570433,
+              46.4552155
+            ],
+            [
+              11.2570937,
+              46.4552187
+            ]
           ]
         ]
       }
@@ -220,6 +333,33 @@
     },
     {
       "type": "Feature",
+      "id": "way/244451208",
+      "properties": {
+        "@id": "244451208",
+        "@type": "way",
+        "@version": "1",
+        "@timestamp": "2013-11-02T18:28:20Z",
+        "@changeset": "18679226",
+        "@uid": "1380953",
+        "@user": "Skombi",
+        "landuse": "orchard"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.2569027,
+            46.4548927
+          ],
+          [
+            11.2577552,
+            46.4549454
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
       "id": "way/33052937",
       "properties": {
         "@id": "33052937",
@@ -291,6 +431,35 @@
           [
             11.2574519,
             46.4555026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/33748710",
+      "properties": {
+        "@id": "33748710",
+        "@type": "way",
+        "@version": "5",
+        "@timestamp": "2013-09-20T03:07:49Z",
+        "@changeset": "17933081",
+        "@uid": "893327",
+        "@user": "mcheckimport",
+        "amenity": "school",
+        "barrier": "wall",
+        "name": "Volksschule"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.2574237,
+            46.4555443
+          ],
+          [
+            11.2571676,
+            46.4555607
           ]
         ]
       }
@@ -530,6 +699,68 @@
           [
             11.2579495,
             46.45542
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/236856462",
+      "properties": {
+        "@id": "236856462",
+        "@type": "way",
+        "@version": "2",
+        "@timestamp": "2013-09-06T15:43:42Z",
+        "@changeset": "17705306",
+        "@uid": "115612",
+        "@user": "tyr_asd",
+        "bicycle": "yes",
+        "highway": "pedestrian",
+        "name": "Hans Weber Tyrol Platz - piazza Hans Weber Tyrol",
+        "name:de": "Hans Weber Tyrol Platz",
+        "name:it": "piazza Hans Weber Tyrol"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.2574683,
+            46.4555997
+          ],
+          [
+            11.2574519,
+            46.4555026
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/236856817",
+      "properties": {
+        "@id": "236856817",
+        "@type": "way",
+        "@version": "1",
+        "@timestamp": "2013-09-06T15:43:40Z",
+        "@changeset": "17705306",
+        "@uid": "115612",
+        "@user": "tyr_asd",
+        "bicycle": "yes",
+        "highway": "pedestrian",
+        "name": "Kapuzinerstraße - via Cappuccini",
+        "name:de": "Kapuzinerstraße",
+        "name:it": "via Cappuccini"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.2574519,
+            46.4555026
+          ],
+          [
+            11.2573247,
+            46.4555155
           ]
         ]
       }
