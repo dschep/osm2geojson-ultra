@@ -7,7 +7,7 @@ osm2geojson-ultra
 A faster & more complete convertor for [OSM](http://openstreetmap.org) & [Overpass](https://overpass-api.de/) data in
 [XML](http://wiki.openstreetmap.org/wiki/OSM_XML) or [JSON](https://wiki.openstreetmap.org/wiki/OSM_JSON) formats to
 [GeoJSON](http://www.geojson.org/) - much faster (the more complex the data source is,
-the more performance advantages it posesses) than osmtogeojson in most situations and faster than osm2geojson-lite -
+the more performance advantages it posesses) than osmtogeojson in most situations and slightly faster than osm2geojson-lite when parsing XML -
 implemented in TypeScript using [txml](https://github.com/TobiasNickel/tXml) to parse XML.
 
 History
