@@ -14,11 +14,11 @@ interface IOptions {
    * If not present, all tagged objects will be converted.
    * @default undefined
    */
-  elementId?: string;
+  elementId?: string | undefined;
 }
 
 function parseOptions(options: IOptions | undefined): {
-  elementId: string;
+  elementId: string | undefined;
 } {
   if (!options) {
     return { elementId: undefined };
@@ -368,7 +368,7 @@ function osm2geojson(
   refElements.bindAll();
 
   if (elementId) {
-    const features = refElements.get(elementId).toFeatureArray();
+    const features = refElements.get(elementId)?.toFeatureArray() || [];
     featureArray = featureArray.concat(features);
   } else {
     for (const v of refElements.values()) {
