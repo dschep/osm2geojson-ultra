@@ -15,32 +15,16 @@ interface IOptions {
    * @default undefined
    */
   elementId?: string;
-  /**
-   * When it's set to `true`, the returned geojson will include all elements with tags (i.e., tagged)
-   * until `suppressWay` changes its behavior a bit; otherwise only the unreferenced ones get returned.
-   * @default false
-   */
-  renderTagged?: boolean;
-  /**
-   * When it's set to `true`, the returned `FeatureCollection` will exclude all referenced `way`s even though they are tagged;
-   * otherwise the features of those `way`s will be included in the resulted result as well.
-   * @default true
-   */
-  excludeWay?: boolean;
 }
 
 function parseOptions(options: IOptions | undefined): {
   elementId: string;
-  renderTagged: boolean;
-  excludeWay: boolean;
 } {
   if (!options) {
-    return { elementId: undefined, renderTagged: false, excludeWay: true };
+    return { elementId: undefined };
   }
   let elementId = options.elementId;
-  let excludeWay = options.excludeWay === undefined || options.excludeWay;
-  let renderTagged = options.renderTagged ? true : false;
-  return { elementId, renderTagged, excludeWay };
+  return { elementId };
 }
 
 function detectFormat(
@@ -172,6 +156,7 @@ function analyzeFeaturesFromXml(osm: string, refElements: RefElements): void {
   const parsed = parse(osm, { noChildNodes: [] });
 
   for (const rootNode of parsed) {
+    if (rootNode.tagName !== "osm") continue;
     for (const elNode of rootNode.children) {
       if (
         elNode.children.find((c: any) =>
@@ -358,7 +343,7 @@ function osm2geojson(
   osm: string | { [k: string]: any },
   opts?: IOptions,
 ): FeatureCollection<GeometryObject> {
-  let { elementId, renderTagged, excludeWay } = parseOptions(opts);
+  let { elementId } = parseOptions(opts);
 
   let format = detectFormat(osm);
 
@@ -383,14 +368,11 @@ function osm2geojson(
   refElements.bindAll();
 
   if (elementId) {
-    const features = refElements[elementId].toFeatureArray();
+    const features = refElements.get(elementId).toFeatureArray();
     featureArray = featureArray.concat(features);
   } else {
     for (const v of refElements.values()) {
-      if (
-        v.refCount > 0 &&
-        (!v.hasTag || !renderTagged || (v instanceof Way && excludeWay))
-      ) {
+      if (v.refCount > 0 && !v.hasTag) {
         continue;
       }
       const features = v.toFeatureArray();
