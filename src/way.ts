@@ -13,13 +13,11 @@ import type { RefElements } from "./ref-elements.js";
 
 export class Way extends OsmObject {
   private latLngArray: Array<LatLon | LateBinder<LatLon>>;
-  private isPolygon: boolean;
   private center: null | LatLon;
 
   constructor(id: string, refElems: RefElements) {
     super("way", id, refElems);
     this.latLngArray = [];
-    this.isPolygon = false;
     this.center = null;
   }
 
@@ -55,14 +53,10 @@ export class Way extends OsmObject {
 
   public addTags(tags: { [k: string]: string }) {
     super.addTags(tags);
-    for (const [k, v] of Object.entries(tags)) {
-      this.analyzeTag(k, v);
-    }
   }
 
   public addTag(k: string, v: string) {
     super.addTag(k, v);
-    this.analyzeTag(k, v);
   }
 
   public toCoordsArray(): string[][] {
@@ -116,20 +110,24 @@ export class Way extends OsmObject {
     return [];
   }
 
-  private analyzeTag(k: string, v: string) {
-    const o = (
+  get isPolygon() {
+    let isPolygon = false;
+    for (const [key, o] of Object.entries(
       polygonTags as Record<
         string,
         { whitelist?: string[]; blacklist?: string[] }
-      >
-    )[k];
-    if (o) {
-      this.isPolygon = true;
-      if (o.whitelist) {
-        this.isPolygon = o.whitelist.indexOf(v) >= 0 ? true : false;
-      } else if (o.blacklist) {
-        this.isPolygon = o.blacklist.indexOf(v) >= 0 ? false : true;
+      >,
+    )) {
+      const v = this.tags[key];
+      if (v && o) {
+        isPolygon = true;
+        if (o.whitelist) {
+          isPolygon = o.whitelist.includes(v);
+        } else if (o.blacklist) {
+          isPolygon = !o.blacklist.includes(v);
+        }
       }
     }
+    return isPolygon;
   }
 }
