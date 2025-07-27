@@ -25,7 +25,6 @@
   "railway": {
     "whitelist": ["station", "turntable", "roundhouse", "platform"]
   },
-  "area": {},
   "boundary": {},
   "man_made": {
     "blacklist": ["cutline", "embankment", "pipeline"]
@@ -48,5 +47,10 @@
   "area:highway": {},
   "craft": {},
   "golf": {},
-  "indoor": {}
+  "indoor": {
+    "blacklist": ["yes", "no"]
+  },
+  "area": {
+    "blacklist": ["no"]
+  }
 }

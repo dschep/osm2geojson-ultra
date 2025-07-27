@@ -7,10 +7,10 @@ export abstract class OsmObject {
 
   protected refElems: RefElements;
 
-  private type: string;
-  private id: string;
-  private tags: { [k: string]: string };
-  private meta: { [k: string]: string };
+  public type: string;
+  public id: string;
+  public tags: { [k: string]: string };
+  public meta: { [k: string]: string };
 
   constructor(type: string, id: string, refElems: RefElements) {
     this.type = type;
