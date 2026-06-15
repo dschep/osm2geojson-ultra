@@ -7,8 +7,9 @@ osm2geojson-ultra
 A faster & more complete convertor for [OSM](http://openstreetmap.org) & [Overpass](https://overpass-api.de/) data in
 [XML](http://wiki.openstreetmap.org/wiki/OSM_XML) or [JSON](https://wiki.openstreetmap.org/wiki/OSM_JSON) formats to
 [GeoJSON](http://www.geojson.org/) - much faster (the more complex the data source is,
-the more performance advantages it posesses) than osmtogeojson in most situations and faster than osm2geojson-lite -
-implemented in TypeScript using [txml](https://github.com/TobiasNickel/tXml) to parse XML.
+the more performance advantages it posesses) than osmtogeojson in most situations and slightly faster than
+osm2geojson-lite when parsing XML - implemented in TypeScript using [txml](https://github.com/TobiasNickel/tXml)
+to parse XML.
 
 History
 -----
@@ -146,7 +147,7 @@ $ npm run bench
 
 Correctness
 ---
-You can copy the converted results to [geojsonlint](http://geojsonlint.com) for the correctness validation.  Up until now, `osm2geojson-lite` behaves pretty well with all the samples (also quite representative) in the `data` subfolers under `test` and `bench` directories, which also outperforms `osmtogeojson`. 
+You can copy the converted results to [geojsonlint](http://geojsonlint.com) for the correctness validation.  Up until now, `osm2geojson-ultra` behaves pretty well with all the samples (also quite representative) in the `data` subfolers under `test` and `bench` directories, which also outperforms `osmtogeojson`. 
 
 The client side example shipped along with this package, `index.html` - due to CORS limitation, the direct post to geojsonlint is blocked, so there's a "copy to clipboard" button for you to ease the validation.
 
