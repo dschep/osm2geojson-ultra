@@ -1,4 +1,4 @@
-import { parse, isElementNode, type TNode } from "txml";
+import { parse, isElementNode, type TNode } from "txml/txml";
 import { purgeProps } from "./utils.js";
 import { LatLon, Node } from "./node.js";
 import { OsmObject } from "./osm-object.js";
