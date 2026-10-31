@@ -6,6 +6,7 @@ import { Output } from "./output.js";
 import { Way } from "./way.js";
 import { Relation } from "./relation.js";
 import { RefElements } from "./ref-elements.js";
+import type { polygonTags } from "./polygonTags.js";
 import type { GeometryObject } from "geojson";
 
 function setTagsFromXML(elNode: TNode, obj: OsmObject) {
@@ -22,6 +23,7 @@ function setTagsFromXML(elNode: TNode, obj: OsmObject) {
 export default function analyzeFeaturesFromXml(
   osm: string,
   refElements: RefElements,
+  polygonTagOverrides: polygonTags | undefined,
 ): void {
   const parsed = parse(osm, { selfClosingTags: [] });
 
@@ -136,7 +138,7 @@ export default function analyzeFeaturesFromXml(
           node.setLatLng(elNode.attributes as unknown as LatLon);
           break;
         case "way":
-          const way = new Way(elNode.attributes.id!, refElements);
+          const way = new Way(elNode.attributes.id!, refElements, polygonTagOverrides);
           setTagsFromXML(elNode, way);
           way.addMetas(
             purgeProps(elNode.attributes as { [k: string]: string }, [

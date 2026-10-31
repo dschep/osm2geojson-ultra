@@ -24,7 +24,7 @@ This project was forked from [osm2geojson-lite](https://github.com/tibetty/osm2g
 * Support for Overpass `out center;` output
 * Properties have a different structure (`id`, `type`, and other non-tag properties are prefixed with `@`)
 * Only distributed as an ES Module
-* All options replaced by an `elementId` option
+* All options replaced by an `elementId` & `polygonTag` option
 * Improved polygon detection for closed ways
 * Revamped relation processing
 * Detection and reporting of tainted objects (eg: missing way nodes or relation members)
@@ -65,6 +65,8 @@ Converts OSM data (XML/JSON) to GeoJSON.
     - `elementId`: the default value is `undefined`. When undefined, all tagged elements are
       returned.  When it is set to an OSM element ID in the form of type/id, eg: `"way/123"` then a
       only that feature is returned.
+    - `polygonTag`: an alternate definition of tags to consider as polygons for closed ways. See
+      `src/polygonTags.ts` for structure & default.
 
 
 Performance

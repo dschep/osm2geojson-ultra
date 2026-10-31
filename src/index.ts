@@ -2,6 +2,7 @@ import { RefElements } from "./ref-elements.js";
 import type { Feature, FeatureCollection, GeometryObject } from "geojson";
 import analyzeFeaturesFromJson from "./json.js";
 import analyzeFeaturesFromXml from "./xml.js";
+import type { polygonTags } from "./polygonTags.js";
 
 interface IOptions {
   /**
@@ -10,16 +11,10 @@ interface IOptions {
    * @default undefined
    */
   elementId?: string | undefined;
-}
-
-function parseOptions(options: IOptions | undefined): {
-  elementId: string | undefined;
-} {
-  if (!options) {
-    return { elementId: undefined };
-  }
-  let elementId = options.elementId;
-  return { elementId };
+  /**
+   * Alternate definition of polygon tags for ways
+   */
+  polygonTags?: polygonTags | undefined;
 }
 
 function detectFormat(
@@ -41,8 +36,6 @@ function osm2geojson(
   osm: string | { [k: string]: any },
   opts?: IOptions,
 ): FeatureCollection<GeometryObject> | Feature<any, any> | undefined {
-  let { elementId } = parseOptions(opts);
-
   let format = detectFormat(osm);
 
   const refElements = new RefElements();
@@ -56,15 +49,15 @@ function osm2geojson(
   }
 
   if (format === "json") {
-    analyzeFeaturesFromJson(osm as { [k: string]: any }, refElements);
+    analyzeFeaturesFromJson(osm as { [k: string]: any }, refElements, opts?.polygonTags);
   } else if (format === "xml") {
-    analyzeFeaturesFromXml(osm as string, refElements);
+    analyzeFeaturesFromXml(osm as string, refElements, opts?.polygonTags);
   }
 
   refElements.bindAll();
 
-  if (elementId) {
-    return refElements.get(elementId)?.toFeature();
+  if (opts?.elementId) {
+    return refElements.get(opts.elementId)?.toFeature();
   }
 
   let featureArray: Feature<any, any>[] = [];

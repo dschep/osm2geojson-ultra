@@ -36,10 +36,10 @@
     "url": "git+https://github.com/dschep/osm2geojson-ultra.git"
   },
   "scripts": {
-    "build": "tsc --skipLibCheck --declaration && cp src/polytags.json dist",
+    "build": "tsc --skipLibCheck --declaration",
     "type-check": "tsc --skipLibCheck --watch",
     "format": "prettier --write src",
-    "test": "vitest test/e2e.test.ts --coverage"
+    "test": "vitest test/e2e.test.ts test/polygonTags.test.ts --coverage"
   },
   "optionalDependencies": {
     "@types/geojson": "^7946.0.16"

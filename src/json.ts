@@ -5,10 +5,12 @@ import { Output } from "./output.js";
 import { Way } from "./way.js";
 import { Relation } from "./relation.js";
 import { RefElements } from "./ref-elements.js";
+import type { polygonTags } from "./polygonTags.js";
 
 export default function analyzeFeaturesFromJson(
   osm: { [k: string]: any },
   refElements: RefElements,
+  polygonTagOverrides: polygonTags | undefined,
 ): void {
   for (const elem of (osm as { [k: string]: any }).elements) {
     // Check for evidence ths is a derived element and process if so
@@ -51,7 +53,7 @@ export default function analyzeFeaturesFromJson(
         node.setLatLng(elem);
         break;
       case "way":
-        const way = new Way(elem.id as string, refElements);
+        const way = new Way(elem.id as string, refElements, polygonTagOverrides);
         if (elem.tags) {
           way.addTags(elem.tags);
         }

@@ -1,4 +1,5 @@
-{
+export type polygonTags = Record<string, { include?: string[]; exclude?: string[]; ignore?: string[] }>;
+export const defaultPolygonTags = {
   "building": {
     "ignore": ["no"]
   },
@@ -60,4 +61,4 @@
   "area": {
     "exclude": ["no"]
   }
-}
+} as polygonTags;

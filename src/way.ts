@@ -8,18 +8,22 @@ import {
   strArrayToFloat,
   strArrayArrayToFloat,
 } from "./utils.js";
-import polygonTags from "./polytags.json" with { type: "json" };
+import { defaultPolygonTags, type polygonTags } from "./polygonTags.js";
 import type { RefElements } from "./ref-elements.js";
 
 export class Way extends OsmObject {
   private latLngArray: Array<LatLon | LateBinder<LatLon>>;
   private center: null | LatLon;
   private tainted: boolean = false;
+  private polygonTags: polygonTags = defaultPolygonTags;
 
-  constructor(id: string, refElems: RefElements) {
+  constructor(id: string, refElems: RefElements, polygonTagOverrides: polygonTags | undefined) {
     super("way", id, refElems);
     this.latLngArray = [];
     this.center = null;
+    if (polygonTagOverrides !== undefined) {
+      this.polygonTags = polygonTagOverrides;
+    }
   }
 
   public addLatLng(latLng: LatLon) {
@@ -122,12 +126,7 @@ export class Way extends OsmObject {
 
   get isPolygon() {
     let isPolygon = false;
-    for (const [key, o] of Object.entries(
-      polygonTags as Record<
-        string,
-        { include?: string[]; exclude?: string[]; ignore?: string[] }
-      >,
-    )) {
+    for (const [key, o] of Object.entries(this.polygonTags)) {
       const v = this.tags[key];
       if (v && o) {
         if (o.ignore?.includes(v)) {

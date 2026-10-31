@@ -60,12 +60,12 @@ export class Relation extends OsmObject {
 
       case "way":
         if (member.geometry) {
-          const way = new Way(member.ref, undefined as unknown as RefElements);
+          const way = new Way(member.ref, undefined as unknown as RefElements, undefined);
           way.setLatLngArray(member.geometry);
           way.refCount++;
           this.ways.push(way);
         } else if (member.nodes) {
-          const way = new Way(member.ref, this.refElems);
+          const way = new Way(member.ref, this.refElems, undefined);
           for (const nid of member.nodes) {
             way.addNodeRef(nid);
           }
