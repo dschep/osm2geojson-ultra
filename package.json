@@ -64,6 +64,6 @@
     "dist/**/*.json"
   ],
   "dependencies": {
-    "txml": "^5.1.1"
+    "txml": "^6.0.3"
   }
 }

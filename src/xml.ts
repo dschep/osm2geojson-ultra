@@ -1,4 +1,4 @@
-import { parse } from "txml";
+import { parse, isElementNode, type TNode } from "txml";
 import { purgeProps } from "./utils.js";
 import { LatLon, Node } from "./node.js";
 import { OsmObject } from "./osm-object.js";
@@ -8,10 +8,13 @@ import { Relation } from "./relation.js";
 import { RefElements } from "./ref-elements.js";
 import type { GeometryObject } from "geojson";
 
-function setTagsFromXML(elNode: any, obj: OsmObject) {
+function setTagsFromXML(elNode: TNode, obj: OsmObject) {
   for (const elChild of elNode.children) {
-    if (elChild.tagName === "tag") {
-      obj.addTag(elChild.attributes.k, elChild.attributes.v);
+    if (isElementNode(elChild) && elChild.tagName === "tag") {
+      const { k, v } = elChild.attributes;
+      if (k && v != null) {
+        obj.addTag(k, v);
+      }
     }
   }
 }
@@ -20,20 +23,23 @@ export default function analyzeFeaturesFromXml(
   osm: string,
   refElements: RefElements,
 ): void {
-  const parsed = parse(osm, { noChildNodes: [] });
+  const parsed = parse(osm, { selfClosingTags: [] });
 
   for (const rootNode of parsed) {
-    if (rootNode.tagName !== "osm") continue;
+    if (!isElementNode(rootNode) || rootNode.tagName !== "osm") continue;
     for (const elNode of rootNode.children) {
+      if (!isElementNode(elNode)) continue;
       // Check children for evidence this is a derived element and process if so
       if (
-        elNode.children.find((c: any) =>
-          ["point", "vertex", "linestring", "group"].includes(c.tagName),
+        elNode.children.find(
+          (c) =>
+            isElementNode(c) &&
+            ["point", "vertex", "linestring", "group"].includes(c.tagName),
         )
       ) {
         // TODO: other derived output geoms?
         const obj = new Output(
-          elNode.tagName as string,
+          elNode.tagName,
           elNode.attributes.id as string,
           refElements,
         );
@@ -46,52 +52,55 @@ export default function analyzeFeaturesFromXml(
           ]),
         );
         setTagsFromXML(elNode, obj);
-        const coordinates = [];
+        const coordinates: [number, number][] = [];
         const geometries: GeometryObject[] = [];
         for (const elChild of elNode.children) {
+          if (!isElementNode(elChild)) continue;
           switch (elChild.tagName) {
             case "point":
               obj.setGeometry({
                 type: "Point",
                 coordinates: [
-                  parseFloat(elChild.attributes.lon),
-                  parseFloat(elChild.attributes.lat),
+                  parseFloat(elChild.attributes.lon!),
+                  parseFloat(elChild.attributes.lat!),
                 ],
               });
               break;
             case "vertex":
               coordinates.push([
-                parseFloat(elChild.attributes.lon),
-                parseFloat(elChild.attributes.lat),
+                parseFloat(elChild.attributes.lon!),
+                parseFloat(elChild.attributes.lat!),
               ]);
               break;
             case "linestring":
-              const ring = [];
+              const ring: [number, number][] = [];
               for (const vertex of elChild.children) {
+                if (!isElementNode(vertex)) continue;
                 ring.push([
-                  parseFloat(vertex.attributes.lon),
-                  parseFloat(vertex.attributes.lat),
+                  parseFloat(vertex.attributes.lon!),
+                  parseFloat(vertex.attributes.lat!),
                 ]);
               }
               obj.setGeometry({ type: "Polygon", coordinates: [ring] });
               break;
             case "group":
-              const groupCoords = [];
+              const groupCoords: [number, number][] = [];
               for (const groupChild of elChild.children) {
+                if (!isElementNode(groupChild)) continue;
                 switch (groupChild.tagName) {
                   case "point":
                     geometries.push({
                       type: "Point",
                       coordinates: [
-                        parseFloat(groupChild.attributes.lon),
-                        parseFloat(groupChild.attributes.lat),
+                        parseFloat(groupChild.attributes.lon!),
+                        parseFloat(groupChild.attributes.lat!),
                       ],
                     });
                     break;
                   case "vertex":
                     groupCoords.push([
-                      parseFloat(groupChild.attributes.lon),
-                      parseFloat(groupChild.attributes.lat),
+                      parseFloat(groupChild.attributes.lon!),
+                      parseFloat(groupChild.attributes.lat!),
                     ]);
                     break;
                 }
@@ -115,7 +124,7 @@ export default function analyzeFeaturesFromXml(
       // handle nodes/ways/relations
       switch (elNode.tagName) {
         case "node":
-          const node = new Node(elNode.attributes.id, refElements);
+          const node = new Node(elNode.attributes.id!, refElements);
           setTagsFromXML(elNode, node);
           node.addMetas(
             purgeProps(elNode.attributes as { [k: string]: string }, [
@@ -124,10 +133,10 @@ export default function analyzeFeaturesFromXml(
               "lat",
             ]),
           );
-          node.setLatLng(elNode.attributes as LatLon);
+          node.setLatLng(elNode.attributes as unknown as LatLon);
           break;
         case "way":
-          const way = new Way(elNode.attributes.id, refElements);
+          const way = new Way(elNode.attributes.id!, refElements);
           setTagsFromXML(elNode, way);
           way.addMetas(
             purgeProps(elNode.attributes as { [k: string]: string }, [
@@ -136,14 +145,15 @@ export default function analyzeFeaturesFromXml(
             ]),
           );
           for (const elChild of elNode.children) {
+            if (!isElementNode(elChild)) continue;
             switch (elChild.tagName) {
               case "center":
-                way.setCenter(elChild.attributes as LatLon);
+                way.setCenter(elChild.attributes as unknown as LatLon);
                 break;
               case "nd":
                 if (elChild.attributes.lon && elChild.attributes.lat) {
-                  way.addLatLng(elChild.attributes as LatLon);
-                } else {
+                  way.addLatLng(elChild.attributes as unknown as LatLon);
+                } else if (elChild.attributes.ref) {
                   way.addNodeRef(elChild.attributes.ref);
                 }
                 break;
@@ -151,12 +161,13 @@ export default function analyzeFeaturesFromXml(
           }
           break;
         case "relation":
-          const rel = new Relation(elNode.attributes.id, refElements);
+          const rel = new Relation(elNode.attributes.id!, refElements);
           setTagsFromXML(elNode, rel);
           for (const elChild of elNode.children) {
+            if (!isElementNode(elChild)) continue;
             switch (elChild.tagName) {
               case "center":
-                rel.setCenter(elChild.attributes as LatLon);
+                rel.setCenter(elChild.attributes as unknown as LatLon);
                 break;
               case "member":
                 const member: { [k: string]: any } = {
@@ -175,8 +186,9 @@ export default function analyzeFeaturesFromXml(
                   const geometry: any[] = [];
                   const nodes: any[] = [];
                   for (const memChild of elChild.children) {
+                    if (!isElementNode(memChild)) continue;
                     if (memChild.attributes.lon && memChild.attributes.lat) {
-                      geometry.push(memChild.attributes as LatLon);
+                      geometry.push(memChild.attributes as unknown as LatLon);
                     } else if (memChild.attributes.ref) {
                       nodes.push(memChild.attributes.ref);
                     }
@@ -191,10 +203,10 @@ export default function analyzeFeaturesFromXml(
                 break;
               case "bounds":
                 rel.setBounds([
-                  parseFloat(elChild.attributes.minlon),
-                  parseFloat(elChild.attributes.minlat),
-                  parseFloat(elChild.attributes.maxlon),
-                  parseFloat(elChild.attributes.maxlat),
+                  parseFloat(elChild.attributes.minlon!),
+                  parseFloat(elChild.attributes.minlat!),
+                  parseFloat(elChild.attributes.maxlon!),
+                  parseFloat(elChild.attributes.maxlat!),
                 ]);
                 break;
             }
