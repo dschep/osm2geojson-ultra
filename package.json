@@ -1,7 +1,7 @@
 {
   "name": "osm2geojson-ultra",
   "license": "MIT",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "author": "dschep",
   "description": "a faster & more complete OSM & Overpass (either in xml or in json formats) to geojson convertor - 4x faster than xmldom + osmtogeojson in most situations - implemented in TypeScript with txml for XML parsing",
   "bin": {
