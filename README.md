@@ -4,12 +4,9 @@ osm2geojson-ultra
 [![NPM Version](https://img.shields.io/npm/v/osm2geojson-ultra)](https://www.npmjs.com/package/osm2geojson-ultra)
 
 
-A faster & more complete convertor for [OSM](http://openstreetmap.org) & [Overpass](https://overpass-api.de/) data in
+A fast & complete converter for [OSM](http://openstreetmap.org) & [Overpass](https://overpass-api.de/) data in
 [XML](http://wiki.openstreetmap.org/wiki/OSM_XML) or [JSON](https://wiki.openstreetmap.org/wiki/OSM_JSON) formats to
-[GeoJSON](http://www.geojson.org/) - much faster (the more complex the data source is,
-the more performance advantages it posesses) than osmtogeojson in most situations and slightly faster than
-osm2geojson-lite when parsing XML - implemented in TypeScript using [txml](https://github.com/TobiasNickel/tXml)
-to parse XML.
+[GeoJSON](http://www.geojson.org/).
 
 History
 -----
@@ -84,73 +81,68 @@ $ npm run bench
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 41ms was taken for 100 rounds
+-> 121ms was taken for 100 rounds
 ---processing hebei.osm---
--> 372ms was taken for 100 rounds
+-> 1572ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 882ms was taken for 100 rounds
+-> 3058ms was taken for 100 rounds
 ---processing usa.osm---
--> 10778ms was taken for 100 rounds
+-> 38552ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 8ms was taken for 100 rounds
+-> 17ms was taken for 100 rounds
 ---processing hebei.json---
--> 105ms was taken for 100 rounds
+-> 528ms was taken for 100 rounds
 ---processing tokyodo.json---
--> 322ms was taken for 100 rounds
+-> 1201ms was taken for 100 rounds
 ---processing usa.json---
--> 5464ms was taken for 100 rounds
+-> 20823ms was taken for 100 rounds
 ```
 
 ### osm2geojson-lite
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 55ms was taken for 100 rounds
+-> 127ms was taken for 100 rounds
 ---processing hebei.osm---
--> 554ms was taken for 100 rounds
+-> 1478ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 1188ms was taken for 100 rounds
+-> 2775ms was taken for 100 rounds
 ---processing usa.osm---
--> 12770ms was taken for 100 rounds
+-> 36459ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 7ms was taken for 100 rounds
+-> 18ms was taken for 100 rounds
 ---processing hebei.json---
--> 104ms was taken for 100 rounds
+-> 285ms was taken for 100 rounds
 ---processing tokyodo.json---
--> 320ms was taken for 100 rounds
+-> 702ms was taken for 100 rounds
 ---processing usa.json---
--> 5554ms was taken for 100 rounds
+-> 19043ms was taken for 100 rounds
 ```
 
 ### overpasstogeojson
 ```
 ==========xml processing performance results==========
 ---processing zhucheng.osm---
--> 179ms was taken for 100 rounds
+-> 457ms was taken for 100 rounds
 ---processing hebei.osm---
--> 3488ms was taken for 100 rounds
+-> 8112ms was taken for 100 rounds
 ---processing tokyodo.osm---
--> 4255ms was taken for 100 rounds
+-> 12067ms was taken for 100 rounds
 ---processing usa.osm---
--> 39755ms was taken for 100 rounds
+-> 94198ms was taken for 100 rounds
 ==========json processing performance results==========
 ---processing zhucheng.json---
--> 34ms was taken for 100 rounds
+-> 89ms was taken for 100 rounds
 ---processing hebei.json---
--> 2086ms was taken for 100 rounds
+-> 3850ms was taken for 100 rounds
 ---processing tokyodo.json---
--> 1040ms was taken for 100 rounds
+-> 2828ms was taken for 100 rounds
 ---processing usa.json---
--> 11273ms was taken for 100 rounds
+-> 29300ms was taken for 100 rounds
 ```
 
-
-JS version
----
-  ES 2019
-  
 Dependencies
 ---
   - [txml](https://github.com/TobiasNickel/tXml)

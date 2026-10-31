@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import fs from 'fs';
-import osm2geojson from '../dist/index.js';
+import osm2geojson from 'osm2geojson-lite';
 
 const rounds = 100;
 console.log('==========xml processing performance results==========');
